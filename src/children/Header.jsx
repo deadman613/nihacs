@@ -28,6 +28,12 @@ const Header = () => {
     { name: 'About', href: '#about' },
   ];
 
+  const headingStyle = {
+    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    fontWeight: 900,
+    letterSpacing: '-0.05em',
+  };
+
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
@@ -39,9 +45,10 @@ const Header = () => {
             <div className="flex-1">
               <Link 
                 href="/" 
-                className={`text-2xl font-bold transition-colors duration-300 ${
+                className={`text-2xl transition-colors duration-300 ${
                   isMenuOpen ? 'text-white' : 'text-white hover:text-lime-400'
                 }`}
+                style={headingStyle}
               >
                 Nihacs
               </Link>
@@ -66,9 +73,10 @@ const Header = () => {
                 href="#contact" 
                 className={`hidden md:block px-6 hover:text-white py-2 rounded-full font-semibold transition-colors duration-300 ${
                   isMenuOpen 
-                    ? 'bg-white text-black hover:bg-red-600' 
-                    : 'bg-white text-black hover:bg-red-600'
+                    ? 'bg-white text-black hover:bg-[#ff1e00] ' 
+                    : 'bg-white text-black hover:bg-[#ff1e00] '
                 }`}
+                style={headingStyle}
               >
                 Get in touch!
               </Link>
@@ -76,7 +84,7 @@ const Header = () => {
               {/* Hamburger Menu Button */}
               <button
                 onClick={toggleMenu}
-                className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-white transition-colors focus:outline-none relative z-[60]"
+                className="w-12 h-12 bg-[#ff1e00] rounded-full flex items-center justify-center hover:bg-white transition-colors focus:outline-none relative z-[60]"
                 aria-label="Toggle menu"
               >
                 <div className="w-6 h-5 flex flex-col justify-between">
@@ -104,7 +112,7 @@ const Header = () => {
 
       {/* Full Page Menu Overlay */}
       <div 
-        className={`fixed inset-0 bg-[#dc0f0f] z-40 transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 bg-black z-40 transition-all duration-500 ease-in-out ${
           isMenuOpen 
             ? 'opacity-100 visible' 
             : 'opacity-0 invisible'
@@ -124,7 +132,13 @@ const Header = () => {
                 >
                   <Link
                     href={item.href}
-                    className="text-black font-black text-5xl md:text-7xl  hover:text-white transition-colors duration-300 block"
+                    className="text-white hover:text-red-600 transition-colors duration-300 block"
+                    style={{
+                      fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+                      fontWeight: 900,
+                      letterSpacing: '-0.05em',
+                      fontSize: 'clamp(3rem, 20vw, 4.5rem)',
+                    }}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
