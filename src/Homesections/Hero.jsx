@@ -8,15 +8,7 @@ const STAGGER   = 68;
 const SQUISH_MS = 130;
 const PAUSE_MS  = 2600;
 
-/*
-  Each letter goes through 3 states:
-    idle         → scaleX(1), showing current char
-    exit         → animating scaleX(1→0), current char
-    enter_start  → scaleX(0), no transition, char already swapped to next
-    enter        → animating scaleX(0→1), next char
 
-  double-rAF between enter_start → enter so browser paints the 0 first.
-*/
 
 function LetterSlot({ current, next, phase, onExitEnd, onEnterEnd }) {
   let scaleVal, trans;
@@ -259,11 +251,11 @@ export default function Hero() {
           fontWeight: 400,
         }}>
           <strong style={{ color: "#fff", fontWeight: 600 }}>Nihacs</strong>, a{" "}
-          <span style={{ color: "red", fontWeight: 600 }}>Cybersecurity</span> and{" "}
-          <span style={{ color: "red", fontWeight: 600 }}>Programming</span> platform
+          <span style={{ color: "#ff1e00", fontWeight: 600 }}>Cybersecurity</span> and{" "}
+          <span style={{ color: "#ff1e00", fontWeight: 600 }}>Programming</span> platform
           with expertise in{" "}
-          <span style={{ color: "red", fontWeight: 600 }}>Ethical Hacking</span> and{" "}
-          <span style={{ color: "red", fontWeight: 600 }}>Development</span>.
+          <span style={{ color: "#ff1e00", fontWeight: 600 }}>Ethical Hacking</span> and{" "}
+          <span style={{ color: "#ff1e00", fontWeight: 600 }}>Development</span>.
         </p>
 
         {/* CTA */}
@@ -271,15 +263,15 @@ export default function Hero() {
           href="#courses"
           style={{
             display: "inline-block", marginTop: "1.8rem",
-            background: "red", color: "white", fontWeight: 800,
+            background: "#ff1e00", color: "white", fontWeight: 800,
             fontSize: "clamp(0.88rem, 1.7vw, 1rem)",
             padding: "0.9rem 2.2rem", borderRadius: 9999, textDecoration: "none",
             fontFamily: '"Helvetica Neue", Arial, sans-serif',
             transition: "transform .2s, box-shadow .2s",
-            boxShadow: "0 2px 14px rgb(214, 4, 4)",
+            boxShadow: "0 2px 14px rgb(255, 30, 0)",
           }}
-          onMouseEnter={e => { e.currentTarget.style.transform="scale(1.06)"; e.currentTarget.style.boxShadow="0 4px 22px rgb(214, 4, 4)"; }}
-          onMouseLeave={e => { e.currentTarget.style.transform="scale(1)";   e.currentTarget.style.boxShadow="0 2px 14px rgb(214, 4, 4)"; }}
+          onMouseEnter={e => { e.currentTarget.style.transform="scale(1.06)"; e.currentTarget.style.boxShadow="0 4px 22px rgb(255, 30, 0)"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform="scale(1)";   e.currentTarget.style.boxShadow="0 2px 14px rgb(255, 30, 0)"; }}
         >
           Let's work together!
         </a>

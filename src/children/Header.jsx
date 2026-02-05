@@ -85,6 +85,7 @@ const Header = () => {
               <button
                 onClick={toggleMenu}
                 className="w-12 h-12 bg-[#ff1e00] rounded-full flex items-center justify-center hover:bg-white transition-colors focus:outline-none relative z-[60]"
+                style={headingStyle}
                 aria-label="Toggle menu"
               >
                 <div className="w-6 h-5 flex flex-col justify-between">
@@ -132,13 +133,8 @@ const Header = () => {
                 >
                   <Link
                     href={item.href}
-                    className="text-white hover:text-red-600 transition-colors duration-300 block"
-                    style={{
-                      fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                      fontWeight: 900,
-                      letterSpacing: '-0.05em',
-                      fontSize: 'clamp(3rem, 20vw, 4.5rem)',
-                    }}
+                    className="text-white text-5xl md:text-7xl hover:text-[#ff1e00] transition-colors duration-300 block"
+                    style={headingStyle}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
