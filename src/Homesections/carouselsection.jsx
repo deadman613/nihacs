@@ -36,37 +36,44 @@ const CybersecurityInfiniteCarousel = () => {
     { name: 'SSO', icon: Key }
   ];
 
-  // Duplicate the array for seamless infinite scroll
+  // Duplicate for seamless infinite scroll
   const duplicatedStack = [...techStack, ...techStack];
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{__html: `
-        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap');
-        
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-        
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-      `}} />
-      
-      <div className="w-full bg-black py-8 overflow-hidden" style={{ fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, sans-serif" }}>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+
+            .animate-scroll {
+              animation: scroll 48s linear infinite;
+              will-change: transform;
+            }
+
+            .animate-scroll:hover {
+              animation-play-state: paused;
+            }
+
+            /* Slightly faster on larger screens */
+            @media (min-width: 640px)  { .animate-scroll { animation-duration: 42s; } }
+            @media (min-width: 1024px) { .animate-scroll { animation-duration: 36s; } }
+            @media (min-width: 1280px) { .animate-scroll { animation-duration: 32s; } }
+
+            .group:hover .icon-hover { color: #dc2626 !important; }
+            .group:hover .text-hover  { color: #dc2626 !important; }
+          `,
+        }}
+      />
+
+      <div className="w-full bg-black py-6 sm:py-8 md:py-5 lg:py-12 overflow-hidden">
         <div className="relative">
-          {/* Gradient overlays for fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+          {/* Fade edges - responsive width */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-28 lg:w-36 xl:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-28 lg:w-36 xl:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling container */}
           <div className="flex animate-scroll">
@@ -74,26 +81,27 @@ const CybersecurityInfiniteCarousel = () => {
               const IconComponent = item.icon;
               return (
                 <div
-                  key={index}
-                  className="flex items-center gap-3 px-8 whitespace-nowrap group cursor-pointer"
+                  key={`${item.name}-${index}`}
+                  className="flex items-center gap-2.5 sm:gap-3 md:gap-4 lg:gap-5 px-5 sm:px-7 md:px-9 lg:px-11 group cursor-default select-none"
                 >
-                  {/* Icon */}
-                  <IconComponent 
-                    className="w-6 h-6 text-red-600 group-hover:text-red-500 transition-colors duration-300" 
-                    strokeWidth={2}
+                  <IconComponent
+                    className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-red-600/90 group-hover:text-red-500 transition-colors duration-300 icon-hover"
+                    strokeWidth={2.2}
                   />
-                  
-                  {/* Text */}
-                  <span className="text-white text-2xl font-semibold tracking-tight group-hover:text-red-600 transition-colors duration-300">
+
+                  <span
+                    className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-white/95 group-hover:text-red-600 transition-colors duration-300 text-hover"
+                  >
                     {item.name}
                   </span>
 
-                  {/* Separator Dot
-                  <div className="w-2 h-2 rounded-full bg-red-600 ml-5 group-hover:scale-125 transition-transform duration-300"></div> */}
+                  {/* Optional subtle separator (uncomment if desired) */}
+                  {/* <div className="w-1.5 h-1.5 rounded-full bg-red-600/40 mx-4 sm:mx-5 lg:mx-6 group-hover:bg-red-500 transition-colors" /> */}
                 </div>
               );
             })}
           </div>
+          
         </div>
       </div>
     </>
