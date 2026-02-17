@@ -22,7 +22,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const menuItems = [
-    { name: 'Our Courses', href: '#courses' },
+    { name: 'Our Courses', href: '/courses' },
     { name: 'About', href: '#about' },
   ];
 

@@ -7,6 +7,8 @@ import CyberPlacements from "@/Homesections/placement.jsx";
 import Choose from "@/Homesections/Choose.jsx";
 import Faq from "@/Homesections/Faq.jsx";
 import Trainer from "@/Homesections/Trainer.jsx";
+import Company from "@/Homesections/company.jsx";
+import Recommend from "@/Homesections/Recommend.jsx";
 
 export default function Home() {
   return (
@@ -15,7 +17,9 @@ export default function Home() {
         <Hero/>
         <Carouselsection/>
         <Gallery/>
+        <Recommend/>
         <CyberPlacements/>
+        <Company/>
         <Choose/>
         <Testimonial/>
         <Trainer/>
