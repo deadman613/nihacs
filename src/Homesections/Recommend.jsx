@@ -1,6 +1,6 @@
 "use client";
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 // Sample courses data
 const sampleCourses = [
@@ -13,8 +13,9 @@ const sampleCourses = [
   },
   {
     id: 2,
-    title: "Basic Enthical Hacking",
-    description: "Core security concepts, network defense, and incident response.",
+    title: "Basic Ethical Hacking",
+    description:
+      "Core security concepts, network defense, and incident response.",
     duration: "3 Months",
     image: "/Courses/03.png",
   },
@@ -46,13 +47,16 @@ export default function Recommend() {
   const recommendedCourses = sampleCourses.slice(0, 3);
 
   return (
-    <section className="bg-black text-white py-20 md:py-28">
+    <section className="bg-black text-white py-10 md:py-28">
       <div className="max-w-[1350px] mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Recommended Courses</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Recommended Courses
+          </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Start your journey with our top-rated courses. Perfect for beginners and professionals alike.
+            Start your journey with our top-rated courses. Perfect for beginners
+            and professionals alike.
           </p>
         </div>
 
@@ -74,12 +78,18 @@ export default function Recommend() {
 
               {/* Course Content */}
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-lg font-semibold text-white mb-2">{course.title}</h3>
-                <p className="text-gray-400 text-sm mb-4 flex-1">{course.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {course.title}
+                </h3>
+                <p className="text-gray-400 text-sm mb-4 flex-1">
+                  {course.description}
+                </p>
 
                 {/* Duration and Button */}
                 <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-700">
-                  <span className="text-sm text-gray-300">{course.duration}</span>
+                  <span className="text-sm text-gray-300">
+                    {course.duration}
+                  </span>
                   <Link
                     href="/courses"
                     className="bg-[#ff1e00] text-white px-4 py-2 rounded-full font-semibold text-sm hover:bg-[#ff3333] transition-colors duration-200"
@@ -93,15 +103,14 @@ export default function Recommend() {
         </div>
 
         {/* View All CTA */}
-        <div className="text-center mt-12">
-          <Link
-            href="/courses"
-            className="inline-block bg-[#ff1e00] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#ff3333] transition-colors duration-200"
-          >
-            View All Courses
+        <div className="text-center mt-12 relative z-50">
+          <Link href="/courses">
+            <button className="inline-block bg-[#ff1e00] text-white font-semibold px-8 py-3 rounded-full hover:bg-[#ff3333] transition-colors duration-200 cursor-pointer">
+              View All Courses
+            </button>
           </Link>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -5,25 +5,18 @@ import Link from 'next/link';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
   }, [isMenuOpen]);
 
   const menuItems = [
     { name: 'Our Courses', href: '/courses' },
     { name: 'About', href: '#about' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Get in touch!', href: '#contact' },
   ];
 
   const headingStyle = {
@@ -42,15 +35,9 @@ const Header = () => {
         <nav className="container mx-auto px-4 md:px-6 py-4 md:py-5">
           <div className="flex items-center justify-between relative">
 
-            {/* Left - Brand Name / Logo text */}
+            {/* Left — Logo */}
             <div className="flex-shrink-0">
-              <Link
-                href="/"
-                className={`text-xl sm:text-2xl transition-colors duration-300 ${
-                  isMenuOpen ? 'text-white' : 'text-white hover:text-lime-400'
-                }`}
-                style={headingStyle}
-              >
+              <Link href="/" className="block">
                 <img
                   src="/logo/logo.png"
                   alt="Brand Logo"
@@ -59,60 +46,48 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Center - Animated Logo (stays centered) */}
+            {/* Center — Animated circle logo */}
             <div className="absolute left-1/2 -translate-x-1/2">
               <Link href="/" className="block">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
+                <div className="w-14 h-14 sm:w-18 sm:h-18 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg"
+                  style={{ width: 'clamp(3.2rem, 7vw, 6rem)', height: 'clamp(3.2rem, 7vw, 6rem)' }}
+                >
+                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                     <source src="/gif/gif1.mp4" type="video/mp4" />
                   </video>
                 </div>
               </Link>
             </div>
 
-            {/* Right - Get in touch button + Hamburger */}
-            <div className="flex items-center gap-3 sm:gap-4 md:gap-6 flex-shrink-0">
+            {/* Right — Desktop buttons + hamburger */}
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-shrink-0">
+
+              {/* Desktop only buttons */}
+              <Link
+                href="/blog"
+                className="hidden md:inline-flex px-5 py-2.5 rounded-full font-semibold bg-white text-black hover:bg-[#ff1e00] hover:text-white transition-colors duration-300 text-base whitespace-nowrap"
+                style={headingStyle}
+              >
+                Blog
+              </Link>
               <Link
                 href="#contact"
-                className={`hidden md:inline-flex px-5 sm:px-6 py-2.5 rounded-full font-semibold transition-colors duration-300 text-base sm:text-lg ${
-                  isMenuOpen
-                    ? 'bg-white text-black hover:bg-[#ff1e00] hover:text-white'
-                    : 'bg-white text-black hover:bg-[#ff1e00] hover:text-white'
-                }`}
+                className="hidden md:inline-flex px-5 py-2.5 rounded-full font-semibold bg-white text-black hover:bg-[#ff1e00] hover:text-white transition-colors duration-300 text-base whitespace-nowrap"
                 style={headingStyle}
               >
                 Get in touch!
               </Link>
 
-              {/* Hamburger Menu Button */}
+              {/* Hamburger — always visible */}
               <button
                 onClick={toggleMenu}
-                className="w-11 h-11 sm:w-12 sm:h-12 bg-[#ff1e00] rounded-full flex items-center justify-center hover:bg-white transition-colors focus:outline-none relative z-[60] flex-shrink-0"
-                style={headingStyle}
+                className="w-10 h-10 sm:w-11 sm:h-11 bg-[#ff1e00] rounded-full flex items-center justify-center hover:bg-white transition-colors focus:outline-none relative z-[60] flex-shrink-0"
                 aria-label="Toggle menu"
               >
-                <div className="w-5 h-4 sm:w-6 sm:h-5 flex flex-col justify-between">
-                  <span
-                    className={`w-full h-0.5 sm:h-[3px] bg-black transition-all duration-300 ${
-                      isMenuOpen ? 'rotate-45 translate-y-1.5 sm:translate-y-2' : ''
-                    }`}
-                  />
-                  <span
-                    className={`w-full h-0.5 sm:h-[3px] bg-black transition-all duration-300 ${
-                      isMenuOpen ? 'opacity-0 scale-0' : ''
-                    }`}
-                  />
-                  <span
-                    className={`w-full h-0.5 sm:h-[3px] bg-black transition-all duration-300 ${
-                      isMenuOpen ? '-rotate-45 -translate-y-1.5 sm:-translate-y-2' : ''
-                    }`}
-                  />
+                <div className="w-5 h-4 flex flex-col justify-between">
+                  <span className={`w-full h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
+                  <span className={`w-full h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? 'opacity-0 scale-0' : ''}`} />
+                  <span className={`w-full h-0.5 bg-black transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
                 </div>
               </button>
             </div>
@@ -120,26 +95,27 @@ const Header = () => {
         </nav>
       </header>
 
-      {/* Full Page Menu Overlay */}
+      {/* Full-page overlay menu */}
       <div
-        className={`fixed inset-0 bg-black z-40 transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 bg-black z-40 transition-all duration-500 ease-in-out flex flex-col ${
           isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
-        <div className="h-full w-full flex items-center justify-center px-6">
+        {/* Nav links — centered vertically */}
+        <div className="flex-1 flex items-center justify-center px-6">
           <nav className="text-center w-full max-w-4xl">
-            <ul className="space-y-10 sm:space-y-12 md:space-y-16">
+            <ul className="space-y-8 sm:space-y-10 md:space-y-14">
               {menuItems.map((item, index) => (
                 <li
                   key={item.name}
-                  className={`transform transition-all duration-500 delay-${index * 150}`}
-                  style={{
-                    transitionDelay: isMenuOpen ? `${index * 100}ms` : '0ms',
-                  }}
+                  style={{ transitionDelay: isMenuOpen ? `${index * 80}ms` : '0ms' }}
+                  className={`transform transition-all duration-500 ${
+                    isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  }`}
                 >
                   <Link
                     href={item.href}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white hover:text-[#ff1e00] transition-colors duration-300 block py-2"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white hover:text-[#ff1e00] transition-colors duration-300 block py-1"
                     style={headingStyle}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -150,6 +126,26 @@ const Header = () => {
             </ul>
           </nav>
         </div>
+
+        {/* Bottom CTA buttons — visible on mobile only (md hides since desktop has them in header)
+        <div className="md:hidden flex flex-col sm:flex-row items-center justify-center gap-3 px-6 pb-10">
+          <Link
+            href="/blog"
+            onClick={() => setIsMenuOpen(false)}
+            className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-semibold bg-white text-black hover:bg-[#ff1e00] hover:text-white transition-colors duration-300 text-base"
+            style={headingStyle}
+          >
+            Blog
+          </Link>
+          <Link
+            href="#contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="w-full sm:w-auto text-center px-8 py-3 rounded-full font-semibold bg-[#ff1e00] text-white hover:bg-white hover:text-black transition-colors duration-300 text-base"
+            style={headingStyle}
+          >
+            Get in touch!
+          </Link>
+        </div> */}
       </div>
     </>
   );

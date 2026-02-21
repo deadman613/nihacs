@@ -38,7 +38,6 @@ function LetterSlot({ current, next, phase, onExitEnd, onEnterEnd }) {
   );
 }
 
-/* ─── row ─── */
 function FlipRow({ word, nextWord, flipKey, onDone }) {
   const maxLen = nextWord
     ? Math.max(word.length, nextWord.length)
@@ -51,12 +50,10 @@ function FlipRow({ word, nextWord, flipKey, onDone }) {
   const timers    = useRef([]);
   const rafs      = useRef([]);
 
-  /* reset on base word change */
   useEffect(() => {
     setSlots(Array.from({ length: word.length }, (_, i) => ({ char: word[i] || "", phase: "idle" })));
   }, [word]);
 
-  /* kick off exit animations */
   useEffect(() => {
     if (!nextWord || flipKey === 0) return;
     doneCount.current = 0;
@@ -139,7 +136,6 @@ function FlipRow({ word, nextWord, flipKey, onDone }) {
   );
 }
 
-/* ────────── HERO ────────── */
 export default function Hero() {
   const [idx, setIdx]               = useState(0);
   const [nextIdx, setNextIdx]       = useState(null);
@@ -182,24 +178,24 @@ export default function Hero() {
   const nxtGray  = nextIdx !== null ? GRAY_WORDS[nextIdx]  : null;
   const nxtWhite = nextIdx !== null ? WHITE_WORDS[nextIdx] : null;
 
-  /* shared heading style – now more responsive */
   const bigType = {
-    fontSize:      "clamp(2.8rem, 9vw, 9.5rem)",     // tighter range, better mobile → desktop
+    fontSize:      "clamp(2.8rem, 9vw, 9.5rem)",
     fontWeight:    900,
     letterSpacing: "clamp(-0.04em, -0.055em, -0.03em)",
-    lineHeight:    0.92,   // slightly tighter to prevent excessive vertical space on mobile
+    lineHeight:    0.92,
     margin:        0,
   };
 
   return (
     <section
       style={{
-        minHeight:       "100dvh",                    // modern viewport height (handles mobile bars)
+        /* ↓ KEY FIX: no minHeight:100vh, just tight symmetric padding */
         background:      "black",
         display:         "flex",
         alignItems:      "center",
         justifyContent:  "center",
-        padding:         "clamp(1.5rem, 9vw, 5rem) clamp(1rem, 4vw, 2rem)",
+        /* top/bottom padding: compact on mobile, slightly more on desktop */
+        padding:         "clamp(5.5rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem)",
         position:        "relative",
         overflow:        "hidden",
         fontFamily:      '"Arial Black", "Helvetica Neue", Arial, sans-serif',
@@ -223,37 +219,37 @@ export default function Hero() {
           zIndex:     1,
           textAlign:  "center",
           width:      "100%",
-          maxWidth:   "clamp(320px, 92%, 1100px)",   // wider on large screens
+          maxWidth:   "clamp(320px, 92%, 1100px)",
         }}
       >
-        {/* LET'S ── static ghost */}
+        {/* LET'S */}
         <div
           style={{
             ...bigType,
-            color:       "rgba(255,255,255,0.13)",
-            fontSize:    "clamp(2.2rem, 7vw, 7rem)",   // smaller than main words
+            color:         "rgba(255,255,255,0.13)",
+            fontSize:      "clamp(3.2rem, 7vw, 7rem)",
             paddingBottom: "clamp(0.04em, 0.8vw, 0.12em)",
           }}
         >
           LET'S
         </div>
 
-        {/* ── GRAY flipping word + dashes ── */}
+        {/* GRAY flipping word + dashes */}
         <div
           style={{
             display:        "flex",
             alignItems:     "center",
             justifyContent: "center",
             gap:            "clamp(0.15em, 0.7vw, 0.28em)",
-            flexWrap:       "wrap",                    // safety for very narrow screens
+            flexWrap:       "wrap",
           }}
         >
           <span
             style={{
-              color:       "rgba(255,255,255,0.18)",
-              fontSize:    "clamp(1.6rem, 5vw, 5rem)",
+              color:         "rgba(255,255,255,0.18)",
+              fontSize:      "clamp(1.6rem, 5vw, 5rem)",
               letterSpacing: "-0.12em",
-              lineHeight:  1,
+              lineHeight:    1,
             }}
           >
             ——
@@ -265,17 +261,17 @@ export default function Hero() {
 
           <span
             style={{
-              color:       "rgba(255,255,255,0.18)",
-              fontSize:    "clamp(1.6rem, 5vw, 5rem)",
+              color:         "rgba(255,255,255,0.18)",
+              fontSize:      "clamp(1.6rem, 5vw, 5rem)",
               letterSpacing: "-0.12em",
-              lineHeight:  1,
+              lineHeight:    1,
             }}
           >
             ——
           </span>
         </div>
 
-        {/* ── WHITE flipping word ── */}
+        {/* WHITE flipping word */}
         <div style={{ ...bigType, color: "#ffffff", paddingTop: "clamp(0.04em, 0.6vw, 0.1em)", minHeight: "1.1em" }}>
           <FlipRow word={curWhite} nextWord={nxtWhite} flipKey={whiteFlipKey} onDone={onWhiteDone} />
         </div>
@@ -283,52 +279,50 @@ export default function Hero() {
         {/* description */}
         <p
           style={{
-            marginTop:     "clamp(1.4rem, 5vw, 3rem)",
-            color:         "rgba(255,255,255,0.45)",
-            fontSize:      "clamp(0.95rem, 2.4vw, 1.35rem)",
-            lineHeight:    1.65,
-            maxWidth:      "clamp(300px, 88%, 540px)",
-            marginLeft:    "auto",
-            marginRight:   "auto",
-            fontFamily:    '"Helvetica Neue", Arial, sans-serif',
-            fontWeight:    400,
+            marginTop:   "clamp(1rem, 3.5vw, 2rem)",
+            color:       "rgba(255,255,255,0.45)",
+            fontSize:    "clamp(0.9rem, 2.2vw, 1.25rem)",
+            lineHeight:  1.65,
+            maxWidth:    "clamp(300px, 88%, 540px)",
+            marginLeft:  "auto",
+            marginRight: "auto",
+            fontFamily:  '"Helvetica Neue", Arial, sans-serif',
+            fontWeight:  400,
           }}
         >
-          <strong style={{ color: "#fff", fontWeight: 600 }}>NIHACS</strong>, a{" "}
-          <span style={{ color: "#ff1e00", fontWeight: 600 }}>Cybersecurity</span>{" "}
-          <span>Institute</span>{" "}
-          with expertise in{" "}
-          <span style={{ color: "#ff1e00", fontWeight: 600 }}>Ethical Hacking</span> and{" "}
-          <span style={{ color: "#ff1e00", fontWeight: 600 }}>Development</span>.
+         <span>
+  Master the Art of Defense. Empowering the next generation of Cybersecurity and Development experts.
+</span>
+
         </p>
 
         {/* CTA */}
         <a
           href="#courses"
           style={{
-            display:       "inline-block",
-            marginTop:     "clamp(1.5rem, 5vw, 2.5rem)",
-            background:    "#ff1e00",
-            color:         "white",
-            fontWeight:    800,
-            fontSize:      "clamp(0.95rem, 2.5vw, 1.15rem)",
-            padding:       "clamp(0.8rem, 2.5vw, 1.1rem) clamp(1.8rem, 6vw, 2.6rem)",
-            borderRadius:  9999,
-            textDecoration:"none",
-            fontFamily:    '"Helvetica Neue", Arial, sans-serif',
-            transition:    "transform .25s ease, box-shadow .25s ease",
-            boxShadow:     "0 3px 16px rgba(255, 30, 0, 0.6)",
+            display:        "inline-block",
+            marginTop:      "clamp(1.2rem, 4vw, 2rem)",
+            background:     "#ff1e00",
+            color:          "white",
+            fontWeight:     800,
+            fontSize:       "clamp(0.9rem, 2.2vw, 1.1rem)",
+            padding:        "clamp(0.75rem, 2vw, 1rem) clamp(1.6rem, 5vw, 2.4rem)",
+            borderRadius:   9999,
+            textDecoration: "none",
+            fontFamily:     '"Helvetica Neue", Arial, sans-serif',
+            transition:     "transform .25s ease, box-shadow .25s ease",
+            boxShadow:      "0 3px 16px rgba(255, 30, 0, 0.6)",
           }}
           onMouseEnter={e => {
-            e.currentTarget.style.transform = "scale(1.07)";
-            e.currentTarget.style.boxShadow  = "0 6px 28px rgba(255, 30, 0, 0.75)";
+            e.currentTarget.style.transform  = "scale(1.07)";
+            e.currentTarget.style.boxShadow = "0 6px 28px rgba(255, 30, 0, 0.75)";
           }}
           onMouseLeave={e => {
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.boxShadow  = "0 3px 16px rgba(255, 30, 0, 0.6)";
+            e.currentTarget.style.transform  = "scale(1)";
+            e.currentTarget.style.boxShadow = "0 3px 16px rgba(255, 30, 0, 0.6)";
           }}
         >
-          Let's work together!
+          Start Hacking
         </a>
       </div>
     </section>

@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 const CybersecurityTestimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   const testimonials = [
     {
@@ -69,40 +71,57 @@ const CybersecurityTestimonial = () => {
   ];
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 1024);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prev => (prev + 1) % testimonials.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-  const renderStars = (rating) => {
-    return '★'.repeat(rating);
-  };
+  const renderStars = (rating) => '★'.repeat(rating);
+
+  const current = testimonials[currentIndex];
 
   return (
-    <div style={{ 
+    <div style={{
       minHeight: '100vh',
-      backgroundColor: 'black',
-      padding: '2.5rem 2rem',
-      fontFamily: "'Inter', 'Segoe UI', sans-serif"
+      backgroundColor: '#000',
+      padding: isMobile ? '1.5rem 1rem' : isTablet ? '2rem 1.5rem' : '2.5rem 2rem',
+      fontFamily: "'Inter', 'Segoe UI', sans-serif",
+      boxSizing: 'border-box'
     }}>
-      <style>
-        {`
-          .testimonial-scroll::-webkit-scrollbar {
-            display: none;
-          }
-          .testimonial-scroll {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-        `}
-      </style>
+      <style>{`
+        *, *::before, *::after { box-sizing: border-box; }
+        .testimonial-scroll::-webkit-scrollbar { display: none; }
+        .testimonial-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        .card-hover:hover { border-color: #dc2626 !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(220,38,38,0.15) !important; }
+        .dot-btn:hover { background-color: #dc2626 !important; }
+        @media (max-width: 639px) {
+          .hero-title { font-size: 1.8rem !important; }
+          .layout-grid { grid-template-columns: 1fr !important; }
+          .right-scroll { max-height: none !important; overflow-y: visible !important; }
+          .featured-img { height: 220px !important; }
+        }
+        @media (min-width: 640px) and (max-width: 1023px) {
+          .hero-title { font-size: 2.2rem !important; }
+          .layout-grid { grid-template-columns: 1fr !important; }
+          .right-scroll { max-height: none !important; overflow-y: visible !important; }
+          .featured-img { height: 260px !important; }
+        }
+      `}</style>
+
       <div style={{ maxWidth: '1350px', margin: '0 auto' }}>
-        <div style={{
-          textAlign: 'center',
-          marginBottom: '0.8rem'
-        }}>
+        {/* Header */}
+        <div style={{ textAlign: 'center', marginBottom: '0.8rem' }}>
           <span style={{
             display: 'inline-block',
             padding: '0.4rem 1.2rem',
@@ -118,60 +137,59 @@ const CybersecurityTestimonial = () => {
             Student Success Stories
           </span>
         </div>
-        
-        <h1 style={{
+
+        <h1 className="hero-title" style={{
           textAlign: 'center',
           fontSize: '3rem',
           marginBottom: '0.5rem',
-          color: '#ffffff',
+          color: '#fff',
           fontWeight: '900',
-          letterSpacing: '-0.5px'
+          letterSpacing: '-0.5px',
+          lineHeight: '1.15',
+          padding: '0 0.5rem'
         }}>
           Transform Your Career in Cybersecurity
         </h1>
-        
+
         <p style={{
           textAlign: 'center',
           color: '#666',
-          fontSize: '0.95rem',
-          marginBottom: '2rem',
+          fontSize: isMobile ? '0.85rem' : '0.95rem',
           maxWidth: '650px',
-          margin: '0 auto 2rem'
+          margin: '0 auto 2rem',
+          padding: '0 1rem',
+          lineHeight: '1.6'
         }}>
           Join thousands of professionals who transformed their careers with our industry-leading cybersecurity course
         </p>
 
-        <div style={{ 
+        {/* Layout */}
+        <div className="layout-grid" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '1.5rem',
+          gridTemplateColumns: isMobile || isTablet ? '1fr' : '1fr 1fr',
+          gap: isMobile ? '1rem' : '1.5rem',
           alignItems: 'start'
         }}>
           {/* Featured Left Card */}
-          <div style={{ 
-            position: 'sticky',
+          <div style={{
+            position: isMobile || isTablet ? 'static' : 'sticky',
             top: '1.5rem',
             background: '#111',
             borderRadius: '12px',
             overflow: 'hidden',
-            boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)',
-            border: '1px solid #222',
-            transition: 'all 0.3s ease'
+            boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
+            border: '1px solid #222'
           }}>
-            <div style={{
+            <div className="featured-img" style={{
               position: 'relative',
               width: '100%',
               height: '280px',
               overflow: 'hidden'
             }}>
-              <img 
-                src={testimonials[currentIndex].image} 
-                alt={testimonials[currentIndex].name}
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'cover'
-                }} 
+              <img
+                src={current.image}
+                alt={current.name}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
               <div style={{
                 position: 'absolute',
@@ -190,81 +208,47 @@ const CybersecurityTestimonial = () => {
               </div>
             </div>
 
-            <div style={{ padding: '1.5rem' }}>
-              <div style={{ 
-                fontSize: '1.2rem',
-                color: '#dc2626',
-                marginBottom: '0.8rem',
-                letterSpacing: '1px'
-              }}>
-                {renderStars(testimonials[currentIndex].rating)}
+            <div style={{ padding: isMobile ? '1rem' : '1.5rem' }}>
+              <div style={{ fontSize: '1.2rem', color: '#dc2626', marginBottom: '0.8rem', letterSpacing: '1px' }}>
+                {renderStars(current.rating)}
               </div>
-
-              <h2 style={{ 
-                fontSize: '1.5rem', 
-                margin: '0 0 0.4rem 0',
-                fontWeight: '700',
-                color: '#fff'
-              }}>
-                {testimonials[currentIndex].name}
+              <h2 style={{ fontSize: isMobile ? '1.3rem' : '1.5rem', margin: '0 0 0.4rem 0', fontWeight: '700', color: '#fff' }}>
+                {current.name}
               </h2>
-              
-              <p style={{ 
-                fontSize: '0.9rem', 
-                margin: '0 0 0.2rem 0',
-                color: '#dc2626',
-                fontWeight: '600'
-              }}>
-                {testimonials[currentIndex].role}
+              <p style={{ fontSize: '0.9rem', margin: '0 0 0.2rem 0', color: '#dc2626', fontWeight: '600' }}>
+                {current.role}
               </p>
-              
-              <p style={{ 
-                fontSize: '0.8rem', 
-                margin: '0 0 1rem 0',
-                color: '#888'
-              }}>
-                {testimonials[currentIndex].company}
+              <p style={{ fontSize: '0.8rem', margin: '0 0 1rem 0', color: '#888' }}>
+                {current.company}
               </p>
-
-              <p style={{ 
-                fontSize: '0.95rem', 
-                lineHeight: '1.6',
-                margin: '0 0 1rem 0',
-                color: '#ccc'
-              }}>
-                "{testimonials[currentIndex].content}"
+              <p style={{ fontSize: '0.95rem', lineHeight: '1.6', margin: '0 0 1rem 0', color: '#ccc' }}>
+                "{current.content}"
               </p>
-
               <div style={{
                 paddingTop: '1rem',
                 borderTop: '1px solid #222',
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center'
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: '0.5rem'
               }}>
-                <span style={{
-                  fontSize: '0.75rem',
-                  color: '#666'
-                }}>
-                  {testimonials[currentIndex].date}
-                </span>
-
-                <div style={{
-                  display: 'flex',
-                  gap: '0.3rem'
-                }}>
+                <span style={{ fontSize: '0.75rem', color: '#666' }}>{current.date}</span>
+                <div style={{ display: 'flex', gap: '0.3rem', flexWrap: 'wrap' }}>
                   {testimonials.map((_, index) => (
                     <button
                       key={index}
+                      className="dot-btn"
                       onClick={() => setCurrentIndex(index)}
                       style={{
                         width: index === currentIndex ? '20px' : '8px',
-                        height: '6px',
-                        borderRadius: '3px',
+                        height: '8px',
+                        borderRadius: '4px',
                         border: 'none',
                         backgroundColor: index === currentIndex ? '#dc2626' : '#333',
                         cursor: 'pointer',
-                        transition: 'all 0.3s ease'
+                        transition: 'all 0.3s ease',
+                        padding: 0
                       }}
                     />
                   ))}
@@ -274,102 +258,94 @@ const CybersecurityTestimonial = () => {
           </div>
 
           {/* Right Scrolling Section */}
-          <div 
-            className="testimonial-scroll"
-            style={{ 
-              maxHeight: '600px',
-              overflowY: 'auto',
-              paddingRight: '0.5rem'
+          <div
+            className="testimonial-scroll right-scroll"
+            style={{
+              maxHeight: isMobile || isTablet ? 'none' : '600px',
+              overflowY: isMobile || isTablet ? 'visible' : 'auto',
+              paddingRight: isMobile || isTablet ? '0' : '0.5rem'
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {testimonials.map((testimonial, index) => (
-                <div 
+                <div
                   key={testimonial.id}
+                  className="card-hover"
                   onClick={() => setCurrentIndex(index)}
-                  style={{ 
+                  style={{
                     background: '#111',
                     borderRadius: '12px',
                     overflow: 'hidden',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     border: index === currentIndex ? '2px solid #dc2626' : '1px solid #222',
-                    boxShadow: index === currentIndex 
-                      ? '0 6px 20px rgba(220, 38, 38, 0.2)' 
-                      : '0 2px 10px rgba(0, 0, 0, 0.1)',
-                    transform: index === currentIndex ? 'translateY(-2px)' : 'translateY(0)'
+                    boxShadow: index === currentIndex
+                      ? '0 6px 20px rgba(220,38,38,0.2)'
+                      : '0 2px 10px rgba(0,0,0,0.1)',
+                    transform: index === currentIndex ? 'translateY(-2px)' : 'none'
                   }}
                 >
-                  <div style={{ display: 'flex', gap: '1rem', padding: '1.2rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    gap: isMobile ? '0.75rem' : '1rem',
+                    padding: isMobile ? '0.9rem' : '1.2rem',
+                    flexDirection: isMobile && window.innerWidth < 400 ? 'column' : 'row',
+                    alignItems: isMobile && window.innerWidth < 400 ? 'flex-start' : 'flex-start'
+                  }}>
                     <div style={{
-                      width: '90px',
-                      height: '90px',
+                      width: isMobile ? '70px' : '90px',
+                      height: isMobile ? '70px' : '90px',
                       borderRadius: '8px',
                       overflow: 'hidden',
                       flexShrink: 0,
                       border: index === currentIndex ? '2px solid #dc2626' : '2px solid #222'
                     }}>
-                      <img 
-                        src={testimonial.image} 
+                      <img
+                        src={testimonial.image}
                         alt={testimonial.name}
-                        style={{ 
-                          width: '100%', 
-                          height: '100%', 
-                          objectFit: 'cover'
-                        }} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                       />
                     </div>
-                    
-                    <div style={{ flex: 1 }}>
-                      <div style={{ 
-                        fontSize: '0.9rem',
-                        color: '#dc2626',
-                        marginBottom: '0.4rem'
-                      }}>
+
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '0.9rem', color: '#dc2626', marginBottom: '0.3rem' }}>
                         {renderStars(testimonial.rating)}
                       </div>
-
-                      <h3 style={{ 
-                        fontSize: '1.1rem', 
+                      <h3 style={{
+                        fontSize: isMobile ? '1rem' : '1.1rem',
                         margin: '0 0 0.2rem 0',
                         color: '#fff',
-                        fontWeight: '700'
+                        fontWeight: '700',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
                       }}>
                         {testimonial.name}
                       </h3>
-                      
-                      <p style={{ 
-                        fontSize: '0.85rem', 
+                      <p style={{
+                        fontSize: isMobile ? '0.8rem' : '0.85rem',
                         margin: '0 0 0.1rem 0',
                         color: index === currentIndex ? '#dc2626' : '#999',
                         fontWeight: '600'
                       }}>
                         {testimonial.role}
                       </p>
-                      
-                      <p style={{ 
-                        fontSize: '0.75rem', 
-                        margin: '0 0 0.8rem 0',
-                        color: '#666'
-                      }}>
+                      <p style={{ fontSize: '0.75rem', margin: '0 0 0.6rem 0', color: '#666' }}>
                         {testimonial.company}
                       </p>
-
-                      <p style={{ 
-                        fontSize: '0.85rem', 
+                      <p style={{
+                        fontSize: isMobile ? '0.8rem' : '0.85rem',
                         lineHeight: '1.5',
                         color: '#bbb',
-                        margin: '0 0 0.6rem 0'
+                        margin: '0 0 0.5rem 0',
+                        display: '-webkit-box',
+                        WebkitLineClamp: isMobile ? 2 : 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
                       }}>
                         "{testimonial.content}"
                       </p>
-
-                      <span style={{
-                        fontSize: '0.7rem',
-                        color: '#666'
-                      }}>
-                        {testimonial.date}
-                      </span>
+                      <span style={{ fontSize: '0.7rem', color: '#666' }}>{testimonial.date}</span>
                     </div>
                   </div>
                 </div>

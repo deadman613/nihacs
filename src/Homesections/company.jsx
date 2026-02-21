@@ -2,15 +2,15 @@ import React from 'react'
 
 export default function Company() {
   const logos = [
-    { name: 'Flylah', url: '/logo/logo.png' },
-    { name: 'Creating Homes', url: '/logo/creatinghomes.png' },
-    { name: 'Kanan Prep', url: 'https://via.placeholder.com/150x80?text=Kanan+Prep' },
-    { name: 'Renewable Corp', url: '/gallery/1.jpg' },
-    { name: 'VaigHai Worldwide', url: '/logo/vaighai.png' },
-    { name: 'ENXO S-Ring', url: 'https://via.placeholder.com/150x80?text=ENXO' },
-    { name: 'GeoDataTek', url: '/logo/geodatatek.png' },
-    { name: 'UHWD', url: 'https://via.placeholder.com/150x80?text=UHWD' },
-    { name: 'Sirf Taxi', url: 'https://via.placeholder.com/150x80?text=Sirf+Taxi' },
+    { name: 'Flylah', url: '/logos/1.png' },
+    { name: 'Creating Homes', url: '/logos/2.png' },
+    { name: 'Kanan Prep', url: '/logos/3.png' },
+    { name: 'Renewable Corp', url: '/logos/4.png' },
+    { name: 'VaigHai Worldwide', url: '/logos/5.png' },
+    { name: 'ENXO S-Ring', url: '/logos/6.png' },
+    { name: 'GeoDataTek', url: '/logos/7.png' },
+    { name: 'UHWD', url: '/logos/8.png' },
+    { name: 'Sirf Taxi', url: '/logos/9.png' },
   ];
 
   // positions to place logos around the hero area (repeats if more logos exist)
@@ -107,10 +107,7 @@ export default function Company() {
           100% { transform: translateX(0); }
         }
 
-        /* Pause on hover */
-        .marquee-row:hover {
-          animation-play-state: paused !important;
-        }
+       
 
         @media (max-width: 640px) {
           .marquee-row { gap: 1rem; }

@@ -9,11 +9,12 @@ import Faq from "@/Homesections/Faq.jsx";
 import Trainer from "@/Homesections/Trainer.jsx";
 import Company from "@/Homesections/company.jsx";
 import Recommend from "@/Homesections/Recommend.jsx";
+import Banner from "@/Homesections/banner.jsx";
 
 export default function Home() {
   return (
     <div className="h-full bg-black">
-      <div className="space-y-20">
+      <div className="space-y-5">
         <Hero/>
         <Carouselsection/>
         <Gallery/>
@@ -23,6 +24,7 @@ export default function Home() {
         <Choose/>
         <Testimonial/>
         <Trainer/>
+        <Banner/>
         <Faq/>
       </div>
     </div>
