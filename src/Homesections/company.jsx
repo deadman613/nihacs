@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Company() {
   const logos = [
-    { name: 'Flylah', url: '/logos/1.png' },
+    { name: 'Flylah', url: '/logos/8.png' },
     { name: 'Creating Homes', url: '/logos/2.png' },
     { name: 'Kanan Prep', url: '/logos/3.png' },
     { name: 'Renewable Corp', url: '/logos/4.png' },
@@ -34,7 +34,7 @@ export default function Company() {
       {/* Large background heading (white, low-opacity) */}
       <h2
         aria-hidden
-        className="pointer-events-none text-white absolute inset-0 flex items-center justify-center text-center text-[8vw] md:text-[10vw] lg:text-[12vw] leading-none font-extrabold tracking-tight select-none"
+        className="pointer-events-none text-white absolute inset-0 flex items-center justify-center text-center text-[16vw] md:text-[10vw] lg:text-[12vw] leading-none font-extrabold tracking-tight select-none"
         style={{ transform: 'translateY(-2%)', color: 'rgba(255,255,255,0.20)', letterSpacing: '-0.03em' }}
       >
         <span className="block">Companies where our students work</span>
@@ -47,7 +47,7 @@ export default function Company() {
           <div className="overflow-hidden">
             <div className="marquee-row" style={{ animation: 'marqueeLeft 45s linear infinite' }}>
               {logos.concat(logos).map((logo, i) => (
-                <div key={`r1-${i}`} className="flex-shrink-0 w-40 sm:w-48 md:w-56 h-20 md:h-28 flex items-center justify-center">
+                <div key={`r1-${i}`} className="flex-shrink-0 w-40 sm:w-48 md:w-56 h-20 md:h-38 flex items-center justify-center">
                   <img src={logo.url} alt={logo.name} loading="lazy" className="w-4/5 h-4/5 object-contain filter brightness-0 invert" />
                 </div>
               ))}

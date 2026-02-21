@@ -234,22 +234,31 @@ const Footer = () => {
 
             {/* Map */}
             <div className="relative w-full lg:w-96 h-44 sm:h-52 lg:h-56 rounded-xl overflow-hidden shadow-lg group flex-shrink-0">
-              {/* Overlay: pointer-events-none so clicks pass through to the iframe */}
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-300 z-10 flex items-center justify-center pointer-events-none">
-                <span className="text-white text-base font-semibold group-hover:opacity-0 transition-opacity duration-300">
-                  View Location
-                </span>
-              </div>
+              {/* iframe (non-interactive, just for display) */}
               <iframe
                 src="https://www.google.com/maps?q=28.5415141,77.240201&z=17&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{ border: 0, pointerEvents: "none" }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="NIHACS Location"
               />
+              {/* Clickable overlay that opens Google Maps in a new tab */}
+              <a
+                href="https://www.google.com/maps/place/National+Institute+of+Hacking+and+cyber+security+Institute/@28.5415141,77.240201,17z"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10 bg-black/40 hover:bg-black/10 transition-all duration-300 flex items-center justify-center"
+              >
+                <span className="text-white text-base font-semibold group-hover:opacity-0 transition-opacity duration-300 flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  View Location
+                </span>
+              </a>
             </div>
           </div>
 
