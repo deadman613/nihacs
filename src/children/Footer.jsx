@@ -234,13 +234,14 @@ const Footer = () => {
 
             {/* Map */}
             <div className="relative w-full lg:w-96 h-44 sm:h-52 lg:h-56 rounded-xl overflow-hidden shadow-lg group flex-shrink-0">
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-opacity-0 transition-all duration-300 z-10 flex items-center justify-center">
+              {/* Overlay: pointer-events-none so clicks pass through to the iframe */}
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-300 z-10 flex items-center justify-center pointer-events-none">
                 <span className="text-white text-base font-semibold group-hover:opacity-0 transition-opacity duration-300">
                   View Location
                 </span>
               </div>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531531677!3d-37.81720997975159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sau!4v1234567890123!5m2!1sen!2sau"
+                src="https://www.google.com/maps?q=28.5415141,77.240201&z=17&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
