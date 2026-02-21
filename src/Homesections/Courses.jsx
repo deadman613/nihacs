@@ -11,7 +11,7 @@ const sampleCourses = [
   },
   {
     id: 2,
-    title: "Basic Enthical Hacking",
+    title: "Basic Ethical Hacking",
     description: "Core security concepts, network defense, and incident response.",
     duration: "3 Months",
     image: "/Courses/03.png",
