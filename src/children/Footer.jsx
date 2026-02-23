@@ -48,21 +48,53 @@ function LegalModal({ title, onClose, children }) {
 /* ── Privacy Policy ── */
 function PrivacyContent() {
   const sections = [
-    { title: "1. Information We Collect", body: "We collect information you provide directly when you register for courses, contact us, or use our services — including your name, email address, phone number, payment details, and any other information you choose to share." },
-    { title: "2. How We Use Your Information", body: "We use collected data to provide and improve our services, process transactions, send technical notices and support messages, and communicate with you about courses, events, and promotions." },
-    { title: "3. Information Sharing", body: "We do not sell, trade, or rent your personal information to third parties. We may share data with trusted service providers who assist in operating our website, subject to strict confidentiality agreements." },
-    { title: "4. Data Security", body: "We implement industry-standard security measures to protect your personal information. No method of transmission over the Internet is 100% secure, but we strive to use commercially acceptable means to protect your data." },
-    { title: "5. Cookies", body: "Our website uses cookies to enhance your browsing experience. You can disable cookies through your browser settings, though this may affect some site functionality." },
-    { title: "6. Third-Party Links", body: "Our website may contain links to third-party sites. We are not responsible for the privacy practices or content of those sites and encourage you to review their privacy policies." },
-    { title: "7. Children's Privacy", body: "Our services are not directed to individuals under 13. We do not knowingly collect personal information from children. If we become aware of such collection, we will take steps to delete it promptly." },
-    { title: "8. Changes to This Policy", body: "We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page with an updated revision date." },
-    { title: "9. Contact Us", body: "If you have questions about this Privacy Policy, please contact us at privacy@nihacs.com or write to NIHACS — National Institute of Hacking And Cyber Security." },
+    {
+      title: "1. Information We Collect",
+      body: "We collect information you provide directly when you register for courses, contact us, or use our services — including your name, email address, phone number, payment details, and any other information you choose to share.",
+    },
+    {
+      title: "2. How We Use Your Information",
+      body: "We use collected data to provide and improve our services, process transactions, send technical notices and support messages, and communicate with you about courses, events, and promotions.",
+    },
+    {
+      title: "3. Information Sharing",
+      body: "We do not sell, trade, or rent your personal information to third parties. We may share data with trusted service providers who assist in operating our website, subject to strict confidentiality agreements.",
+    },
+    {
+      title: "4. Data Security",
+      body: "We implement industry-standard security measures to protect your personal information. No method of transmission over the Internet is 100% secure, but we strive to use commercially acceptable means to protect your data.",
+    },
+    {
+      title: "5. Cookies",
+      body: "Our website uses cookies to enhance your browsing experience. You can disable cookies through your browser settings, though this may affect some site functionality.",
+    },
+    {
+      title: "6. Third-Party Links",
+      body: "Our website may contain links to third-party sites. We are not responsible for the privacy practices or content of those sites and encourage you to review their privacy policies.",
+    },
+    {
+      title: "7. Children's Privacy",
+      body: "Our services are not directed to individuals under 13. We do not knowingly collect personal information from children. If we become aware of such collection, we will take steps to delete it promptly.",
+    },
+    {
+      title: "8. Changes to This Policy",
+      body: "We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page with an updated revision date.",
+    },
+    {
+      title: "9. Contact Us",
+      body: "If you have questions about this Privacy Policy, please contact us at privacy@nihacs.com or write to NIHACS — National Institute of Hacking And Cyber Security.",
+    },
   ];
 
   return (
     <>
       <p className="text-gray-500 text-xs">Last updated: January 1, 2026</p>
-      <p>At <span className="text-white font-semibold">NIHACS</span>, we are committed to protecting your privacy and ensuring the security of your personal information. This policy explains how we collect, use, and safeguard your data.</p>
+      <p>
+        At <span className="text-white font-semibold">NIHACS</span>, we are
+        committed to protecting your privacy and ensuring the security of your
+        personal information. This policy explains how we collect, use, and
+        safeguard your data.
+      </p>
       {sections.map((s, i) => (
         <div key={i}>
           <h3 className="text-white font-semibold mb-1">{s.title}</h3>
@@ -76,22 +108,56 @@ function PrivacyContent() {
 /* ── Terms & Conditions ── */
 function TermsContent() {
   const sections = [
-    { title: "1. Acceptance of Terms", body: "By accessing and using NIHACS services, you accept and agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services." },
-    { title: "2. Course Enrollment", body: "Enrollment is subject to availability and completion of the registration process. We reserve the right to refuse enrollment at our sole discretion. Course fees must be paid in full before access is granted." },
-    { title: "3. Intellectual Property", body: "All course materials, content, logos, and resources provided by NIHACS are protected by copyright and intellectual property laws. Reproduction or distribution without explicit written permission is prohibited." },
-    { title: "4. Code of Conduct", body: "Students must use knowledge gained ethically and legally. Any use of skills for unauthorized access, malicious activities, or illegal purposes is strictly prohibited and will result in immediate termination of enrollment." },
-    { title: "5. Refund Policy", body: "Refund requests must be submitted within 7 days of enrollment. No refunds will be issued after course materials have been accessed or downloaded. Refunds are processed within 10 business days of approval." },
-    { title: "6. Disclaimer of Warranties", body: "NIHACS provides services on an 'as is' and 'as available' basis. We make no warranties, expressed or implied, regarding the accuracy, reliability, or completeness of our course content." },
-    { title: "7. Limitation of Liability", body: "NIHACS shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, even if we have been advised of the possibility of such damages." },
-    { title: "8. Governing Law", body: "These Terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of Indian courts." },
-    { title: "9. Modifications", body: "NIHACS reserves the right to modify these Terms at any time. Continued use of our services after changes constitutes acceptance. We encourage you to review these terms periodically." },
-    { title: "10. Contact", body: "For questions regarding these Terms and Conditions, please contact us at legal@nihacs.com." },
+    {
+      title: "1. Acceptance of Terms",
+      body: "By accessing and using NIHACS services, you accept and agree to be bound by these Terms and Conditions. If you do not agree, please do not use our services.",
+    },
+    {
+      title: "2. Course Enrollment",
+      body: "Enrollment is subject to availability and completion of the registration process. We reserve the right to refuse enrollment at our sole discretion. Course fees must be paid in full before access is granted.",
+    },
+    {
+      title: "3. Intellectual Property",
+      body: "All course materials, content, logos, and resources provided by NIHACS are protected by copyright and intellectual property laws. Reproduction or distribution without explicit written permission is prohibited.",
+    },
+    {
+      title: "4. Code of Conduct",
+      body: "Students must use knowledge gained ethically and legally. Any use of skills for unauthorized access, malicious activities, or illegal purposes is strictly prohibited and will result in immediate termination of enrollment.",
+    },
+    {
+      title: "5. Refund Policy",
+      body: "Refund requests must be submitted within 7 days of enrollment. No refunds will be issued after course materials have been accessed or downloaded. Refunds are processed within 10 business days of approval.",
+    },
+    {
+      title: "6. Disclaimer of Warranties",
+      body: "NIHACS provides services on an 'as is' and 'as available' basis. We make no warranties, expressed or implied, regarding the accuracy, reliability, or completeness of our course content.",
+    },
+    {
+      title: "7. Limitation of Liability",
+      body: "NIHACS shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, even if we have been advised of the possibility of such damages.",
+    },
+    {
+      title: "8. Governing Law",
+      body: "These Terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of Indian courts.",
+    },
+    {
+      title: "9. Modifications",
+      body: "NIHACS reserves the right to modify these Terms at any time. Continued use of our services after changes constitutes acceptance. We encourage you to review these terms periodically.",
+    },
+    {
+      title: "10. Contact",
+      body: "For questions regarding these Terms and Conditions, please contact us at legal@nihacs.com.",
+    },
   ];
 
   return (
     <>
       <p className="text-gray-500 text-xs">Last updated: January 1, 2026</p>
-      <p>Please read these Terms and Conditions carefully before using <span className="text-white font-semibold">NIHACS</span> services. These terms govern your use of our platform and courses.</p>
+      <p>
+        Please read these Terms and Conditions carefully before using{" "}
+        <span className="text-white font-semibold">NIHACS</span> services. These
+        terms govern your use of our platform and courses.
+      </p>
       {sections.map((s, i) => (
         <div key={i}>
           <h3 className="text-white font-semibold mb-1">{s.title}</h3>
@@ -171,7 +237,6 @@ const Footer = () => {
         <div className="absolute top-6 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-red-600 rounded-full" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
-
           {/* Social Icons */}
           <div className="flex justify-center gap-3 sm:gap-4 mb-8">
             {socialLinks.map((social) => (
@@ -188,33 +253,142 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Credits */}
-          <div className="bg-[#1a1a1a] rounded-2xl sm:rounded-3xl py-4 sm:py-6 px-4 sm:px-8 mb-8 w-full">
-            {/* Mobile: stacked */}
-            <div className="flex flex-col items-center gap-2 sm:hidden">
-              <span className="text-red-600 text-sm font-semibold mb-1">Hire my fantastic team!</span>
-              {credits.map((credit, index) => (
-                <p key={index} className="text-gray-400 text-xs text-center">
-                  {credit.text}{" "}
-                  <Link href={credit.href} className="underline hover:text-red-600 transition-colors">
-                    {credit.name}
-                  </Link>
-                </p>
-              ))}
+          {/* Courses, Address & Quick Links */}
+          <div className="bg-[#1a1a1a] rounded-2xl sm:rounded-3xl py-6 sm:py-8 px-4 sm:px-8 mb-8 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+              {/* Quick Links Column */}
+              <div>
+                <h3 className="text-red-600 text-sm font-semibold uppercase tracking-wider mb-4">
+                  Our Company
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    { label: "Home", href: "/" },
+                    { label: "About", href: "/about" },
+                    { label: "Blog", href: "/blog" },
+                    { label: "Contact", href: "/contact" },
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <span className="text-red-600">›</span>
+                      <Link
+                        href={item.href}
+                        className="text-gray-400 text-sm hover:text-red-600 transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Courses Column */}
+              <div>
+                <h3 className="text-red-600 text-sm font-semibold uppercase tracking-wider mb-4">
+                  Our Courses
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    {
+                      label: "Web Penetration Testing And Bug Bounty Hunting",
+                      href: "/courses",
+                    },
+                    { label: "Basic Ethical Hacking", href: "/courses" },
+                    { label: "Bachelor in Cybersecurity", href: "/courses" },
+                    {
+                      label: "Master in Cybersecurity And Ethical Hacking",
+                      href: "/courses",
+                    },
+                    { label: "Diploma in Cybersecurity", href: "/courses" },
+                  ].map((course, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="text-red-600 mt-1">›</span>
+                      <Link
+                        href={course.href}
+                        className="text-gray-400 text-sm hover:text-red-600 transition-colors"
+                      >
+                        {course.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Address Column */}
+              <div>
+                <h3 className="text-red-600 text-sm font-semibold uppercase tracking-wider mb-4">
+                  Contact Us
+                </h3>
+                <ul className="space-y-3 text-gray-400 text-sm">
+                  <li className="flex items-start gap-3">
+                    <svg
+                      className="w-4 h-4 text-red-600 mt-0.5 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    <span>
+                      Savitri Cinema Complex, Block E, Greater Kailash II,
+                      Greater Kailash, New Delhi, Delhi 110048
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <svg
+                      className="w-4 h-4 text-red-600 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"
+                      />
+                    </svg>
+                    <a
+                      href="tel:+918743912102"
+                      className="hover:text-red-600 transition-colors"
+                    >
+                      +91 8743912102
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <svg
+                      className="w-4 h-4 text-red-600 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <a
+                      href="mailto:info@nifase.com"
+                      className="hover:text-red-600 transition-colors"
+                    >
+                      info@nifase.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            {/* Tablet+: inline */}
-            <p className="hidden sm:flex flex-wrap justify-center items-center gap-x-3 gap-y-2 text-sm md:text-base text-gray-400">
-              <span className="text-red-600">Hire my fantastic team!</span>
-              {credits.map((credit, index) => (
-                <span key={index} className="flex items-center gap-2">
-                  {index > 0 && <span className="text-gray-600">|</span>}
-                  <span>{credit.text}</span>
-                  <Link href={credit.href} className="underline hover:text-red-600 transition-colors">
-                    {credit.name}
-                  </Link>
-                </span>
-              ))}
-            </p>
           </div>
 
           {/* Brand + Map */}
@@ -223,7 +397,10 @@ const Footer = () => {
             <div className="text-center lg:text-left flex-shrink-0">
               <h2
                 className="font-black text-white leading-none tracking-tighter"
-                style={{ fontSize: "clamp(3rem, 15vw, 10rem)", letterSpacing: "-0.05em" }}
+                style={{
+                  fontSize: "clamp(3rem, 15vw, 10rem)",
+                  letterSpacing: "-0.05em",
+                }}
               >
                 NIHACS
               </h2>
@@ -253,8 +430,12 @@ const Footer = () => {
                 className="absolute inset-0 z-10 bg-black/40 hover:bg-black/10 transition-all duration-300 flex items-center justify-center"
               >
                 <span className="text-white text-base font-semibold group-hover:opacity-0 transition-opacity duration-300 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                   View Location
                 </span>
@@ -283,7 +464,6 @@ const Footer = () => {
               </button>
             </div>
           </div>
-
         </div>
       </footer>
     </>
