@@ -8,6 +8,19 @@ const STAGGER   = 68;
 const SQUISH_MS = 130;
 const PAUSE_MS  = 2600;
 
+const CYBER_TAGS = [
+  "Hacking",
+  "Bug Bounty",
+  "Penetration Testing",
+  "CTF",
+  "Malware Analysis",
+  "OSINT",
+  "Reverse Engineering",
+  "Red Teaming",
+  "Cryptography",
+  "Web Exploitation",
+];
+
 function LetterSlot({ current, next, phase, onExitEnd, onEnterEnd }) {
   let scaleVal, trans;
   switch (phase) {
@@ -295,6 +308,40 @@ export default function Hero() {
 </span>
 
         </p>
+
+         <div
+          style={{
+            display:        "flex",
+            flexWrap:       "wrap",
+            justifyContent: "center",
+            gap:            "clamp(0.4rem, 1.2vw, 0.65rem)",
+            marginTop:      "clamp(1rem, 3vw, 1.6rem)",
+            maxWidth:       "clamp(300px, 90%, 680px)",
+            marginLeft:     "auto",
+            marginRight:    "auto",
+          }}
+        >
+          {CYBER_TAGS.map((tag, i) => (
+            <span
+              key={tag}
+              style={{
+                fontFamily:      '"Helvetica Neue", Arial, sans-serif',
+                fontSize:        "clamp(0.68rem, 1.6vw, 0.82rem)",
+                fontWeight:      600,
+                letterSpacing:   "0.04em",
+                textTransform:   "uppercase",
+                color:           i % 2 === 0 ? "rgba(255,30,0,0.85)" : "rgba(255,255,255,0.35)",
+                border:          `1px solid ${i % 2 === 0 ? "rgba(255,30,0,0.3)" : "rgba(255,255,255,0.1)"}`,
+                borderRadius:    "4px",
+                padding:         "0.28em 0.7em",
+                backdropFilter:  "blur(4px)",
+                whiteSpace:      "nowrap",
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
 
         {/* CTA */}
         <a
