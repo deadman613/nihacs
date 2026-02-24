@@ -359,10 +359,10 @@ const Footer = () => {
                       />
                     </svg>
                     <a
-                      href="tel:+918743912102"
+                      href="tel:+919266419614"
                       className="hover:text-red-600 transition-colors"
                     >
-                      +91 8743912102
+                      +91 9266419614
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
