@@ -28,7 +28,7 @@ const TrainerScrollSimple = () => {
     {
       id: 4,
       name: 'Miss Shagun',
-      image: '/trainers/shagun.jpeg',
+      image: '/trainers/Shagun.jpeg',
       Position: 'AI  Expert'
     },
   ];

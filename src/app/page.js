@@ -17,12 +17,12 @@ export default function Home() {
       <div className="space-y-5">
         <Hero/>
         <Carouselsection/>
-        <Gallery/>
         <Recommend/>
+        <Testimonial/>
+        <Gallery/>
         <CyberPlacements/>
         <Company/>
         <Choose/>
-        <Testimonial/>
         <Trainer/>
         <Banner/>
         <Faq/>
