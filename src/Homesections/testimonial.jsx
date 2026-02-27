@@ -10,61 +10,56 @@ const CybersecurityTestimonial = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Alex Mitchell",
+      name: "Rahul Verma",
       role: "Security Analyst",
-      company: "CyberDefense Corp",
       content: "This cybersecurity course completely transformed my career. The hands-on labs and real-world scenarios prepared me for actual threats I face daily. Best investment I've made!",
-      image: "https://i.pravatar.cc/400?img=12",
+      image: "/studentpics/1.jpeg",
       rating: 5,
       date: "15/01/2024"
     },
     {
       id: 2,
-      name: "Priya Sharma",
+      name: "Manjeet Sharma",
       role: "Penetration Tester",
-      company: "SecureNet Solutions",
       content: "The ethical hacking modules were incredibly comprehensive. I went from beginner to landing my dream job in just 6 months. The instructors are industry experts!",
-      image: "https://i.pravatar.cc/400?img=5",
+      image: "/studentpics/2.jpeg",
       rating: 5,
       date: "22/12/2023"
     },
     {
       id: 3,
-      name: "Marcus Thompson",
+      name: "Naveen Kumar ",
       role: "IT Security Manager",
-      company: "Global Tech Inc",
       content: "Outstanding course content covering everything from network security to incident response. The certification helped me secure a 30% salary increase.",
-      image: "https://i.pravatar.cc/400?img=8",
+      image: "/studentpics/3.jpeg",
       rating: 5,
       date: "08/01/2024"
     },
     {
       id: 4,
-      name: "Sofia Chen",
+      name: "Baldev Singh",
       role: "Cybersecurity Consultant",
       company: "TechGuard Consulting",
       content: "The practical approach to teaching complex concepts made learning enjoyable. The community support and mentorship were invaluable throughout my journey.",
-      image: "https://i.pravatar.cc/400?img=9",
+      image: "/studentpics/4.jpeg",
       rating: 5,
       date: "30/11/2023"
     },
     {
       id: 5,
-      name: "James Rodriguez",
+      name: "Roma Gupta",
       role: "SOC Analyst",
-      company: "DefenseFirst Systems",
       content: "From threat detection to malware analysis, this course covered it all. The 24/7 lab access allowed me to practice at my own pace. Highly recommended!",
-      image: "https://i.pravatar.cc/400?img=13",
+      image: "/studentpics/5.jpeg",
       rating: 5,
       date: "19/12/2023"
     },
     {
       id: 6,
-      name: "Emily Watson",
+      name: " Rohit",
       role: "Security Engineer",
-      company: "CloudSecure Ltd",
       content: "The instructors' real-world experience shines through every lesson. I gained practical skills that I use every single day in my role. Worth every penny!",
-      image: "https://i.pravatar.cc/400?img=10",
+      image: "/studentpics/6.jpeg",
       rating: 5,
       date: "05/01/2024"
     }

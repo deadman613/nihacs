@@ -14,9 +14,9 @@ const Header = () => {
 
   const menuItems = [
     { name: 'Our Courses', href: '/courses' },
-    { name: 'About', href: '#about' },
+    { name: 'About', href: '/About' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Get in touch!', href: '#contact' },
+    { name: 'Get in touch!', href: '/Contact' },
   ];
 
   const headingStyle = {
@@ -71,7 +71,7 @@ const Header = () => {
                 Blog
               </Link>
               <Link
-                href="#contact"
+                href="/Contact"
                 className="hidden md:inline-flex px-5 py-2.5 rounded-full font-semibold bg-white text-black hover:bg-[#ff1e00] hover:text-white transition-colors duration-300 text-base whitespace-nowrap"
                 style={headingStyle}
               >

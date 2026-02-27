@@ -1,15 +1,16 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
+import Carouselcourses from "../Homesections/carouselcourses";
 
 /* ────────── CONFIG ────────── */
 const GRAY_WORDS  = ["SECURE",  "PROTECT", "DEFEND"];
 const WHITE_WORDS = ["STUFF",   "DATA",    "SYSTEMS"];
-const STAGGER   = 68;
-const SQUISH_MS = 130;
+const STAGGER   = 58;
+const SQUISH_MS = 120;
 const PAUSE_MS  = 2600;
 
 const CYBER_TAGS = [
-  "Hacking",
+  "Ethical Hacking",
   "Bug Bounty",
   "Penetration Testing",
   "CTF",
@@ -309,41 +310,47 @@ export default function Hero() {
 
         </p>
 
-         <div
-          style={{
-            display:        "flex",
-            flexWrap:       "wrap",
-            justifyContent: "center",
-            gap:            "clamp(0.4rem, 1.2vw, 0.65rem)",
-            marginTop:      "clamp(1rem, 3vw, 1.6rem)",
-            maxWidth:       "clamp(300px, 90%, 680px)",
-            marginLeft:     "auto",
-            marginRight:    "auto",
-          }}
-        >
-          {CYBER_TAGS.map((tag, i) => (
-            <span
-              key={tag}
-              style={{
-                fontFamily:      '"Helvetica Neue", Arial, sans-serif',
-                fontSize:        "clamp(0.68rem, 1.6vw, 0.82rem)",
-                fontWeight:      600,
-                letterSpacing:   "0.04em",
-                textTransform:   "uppercase",
-                color:           i % 2 === 0 ? "rgba(255,30,0,0.85)" : "rgba(255,255,255,0.35)",
-                border:          `1px solid ${i % 2 === 0 ? "rgba(255,30,0,0.3)" : "rgba(255,255,255,0.1)"}`,
-                borderRadius:    "4px",
-                padding:         "0.28em 0.7em",
-                backdropFilter:  "blur(4px)",
-                whiteSpace:      "nowrap",
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+    gap: "12px",
+    marginTop: "1.5rem",
+    maxWidth: "750px",
+    marginInline: "auto",
+  }}
+
+
+>
+  <Carouselcourses />
+  {/* {CYBER_TAGS.map((tag, i) => (
+    <span
+      key={tag}
+      style={{
+        fontFamily: '"Helvetica Neue", Arial, sans-serif',
+        fontSize: "0.8rem",
+        fontWeight: 600,
+        letterSpacing: "0.05em",
+        textTransform: "uppercase",
+        textAlign: "center",
+        padding: "8px 16px",
+        borderRadius: "6px",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+        color: i % 2 === 0 ? "#ff2a00" : "rgba(255,255,255,0.6)",
+        border: i % 2 === 0
+          ? "1px solid rgba(255,42,0,0.6)"
+          : "1px solid rgba(255,255,255,0.15)",
+        background: "rgba(255,255,255,0.03)",
+      }}
+    >
+      {tag}
+    </span>
+  ))} */}
+</div>
 
         {/* CTA */}
+        <div className="flex flex-wrap justify-center gap-4 mt-6">
         <a
           href="#courses"
           style={{
@@ -371,6 +378,35 @@ export default function Hero() {
         >
           Start Hacking
         </a>
+         <a
+          href="/courses"
+          style={{
+            display:        "inline-block",
+            marginTop:      "clamp(1.2rem, 4vw, 2rem)",
+            background:     "#ffffff",
+            color:          "black",
+            fontWeight:     800,
+            fontSize:       "clamp(0.9rem, 2.2vw, 1.1rem)",
+            padding:        "clamp(0.75rem, 2vw, 1rem) clamp(1.6rem, 5vw, 2.4rem)",
+            borderRadius:   9999,
+            textDecoration: "none",
+            fontFamily:     '"Helvetica Neue", Arial, sans-serif',
+            transition:     "transform .25s ease, box-shadow .25s ease",
+            boxShadow:      "0 3px 16px rgba(255, 30, 0, 0.6)",
+          }}
+          onMouseEnter={e => {
+            e.currentTarget.style.transform  = "scale(1.07)";
+            e.currentTarget.style.boxShadow = "0 6px 28px rgba(255, 30, 0, 0.75)";
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.transform  = "scale(1)";
+            e.currentTarget.style.boxShadow = "0 3px 16px rgba(255, 30, 0, 0.6)";
+          }}
+        >
+       Explore Courses
+        </a>
+
+        </div>
       </div>
     </section>
   );

@@ -52,7 +52,7 @@ export default function Recommend() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            Recommended Courses
+       Courses Designed for the Real-World
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Start your journey with our top-rated courses. Perfect for beginners

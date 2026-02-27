@@ -14,7 +14,7 @@ import Banner from "@/Homesections/banner.jsx";
 export default function Home() {
   return (
     <div className="h-full bg-black">
-      <div className="space-y-5">
+      <div className="">
         <Hero/>
         <Carouselsection/>
         <Recommend/>

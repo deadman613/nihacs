@@ -26,7 +26,7 @@ export default function HeroCourses() {
             <article className="flex bg-[#0b0b0b] rounded-xl p-4 items-center gap-4 shadow-lg">
               <img src="/trainers/varnit.jpeg" alt="Varnit" className="w-38 h-38  object-cover " />
               <div>
-                <h3 className="text-lg font-semibold">Varnit Kumar</h3>
+                <h3 className="text-lg font-semibold">Varnit Jain</h3>
                 <p className="text-sm text-gray-300">Lead Trainer — Ethical Hacking & Penetration Testing</p>
                 <p className="text-sm text-gray-400 mt-2">10+ years experience in cybersecurity, red-team engagements, and incident response. Mentor to thousands of learners with practical, lab-driven teaching.</p>
               </div>
@@ -35,7 +35,7 @@ export default function HeroCourses() {
             <article className="flex bg-[#0b0b0b] rounded-xl p-4 items-center gap-4 shadow-lg">
               <img src="/trainers/kunal.jpeg" alt="Kunal" className="w-38 h-38  object-cover " />
               <div>
-                <h3 className="text-lg font-semibold">Kunal Sharma</h3>
+                <h3 className="text-lg font-semibold">Kunal Porwal</h3>
                 <p className="text-sm text-gray-300">Senior Instructor — Web & Cloud Security</p>
                 <p className="text-sm text-gray-400 mt-2">8+ years building secure systems, conducting security audits, and teaching secure development practices with real-world case studies.</p>
               </div>
