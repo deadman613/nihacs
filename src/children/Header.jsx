@@ -104,7 +104,7 @@ const Header = () => {
         {/* Nav links — centered vertically */}
         <div className="flex-1 flex items-center justify-center px-6">
           <nav className="text-center w-full max-w-4xl">
-            <ul className="space-y-8 sm:space-y-10 md:space-y-14">
+            <ul className="space-y-8 sm:space-y-10 md:space-y-8">
               {menuItems.map((item, index) => (
                 <li
                   key={item.name}

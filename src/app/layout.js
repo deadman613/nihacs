@@ -27,17 +27,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <head>
-        {/* Tailwind Play CDN for v4+ */}
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header/>
+        <div className="flex flex-col min-h-screen">
+          
+          <Header />
 
-        {children}
-        <Footer/>
+          <main className="flex-grow">
+            {children}
+          </main>
+
+          <Footer />
+
+        </div>
       </body>
     </html>
   );

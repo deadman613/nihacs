@@ -3,18 +3,18 @@ import Hero from "../Homesections/Hero.jsx"
 import Carouselsection from "../Homesections/carouselsection.jsx"
 import Gallery from "../Homesections/gallery.jsx";
 import Testimonial from "../Homesections/testimonial.jsx";
-import CyberPlacements from "@/Homesections/placement.jsx";
-import Choose from "@/Homesections/Choose.jsx";
-import Faq from "@/Homesections/Faq.jsx";
-import Trainer from "@/Homesections/Trainer.jsx";
-import Company from "@/Homesections/company.jsx";
-import Recommend from "@/Homesections/Recommend.jsx";
-import Banner from "@/Homesections/banner.jsx";
+import CyberPlacements from "../Homesections/placement.jsx";
+import Choose from "../Homesections/Choose.jsx";
+import Faq from "../Homesections/Faq.jsx";
+import Trainer from "../Homesections/Trainer.jsx";
+import Company from "../Homesections/company.jsx";
+import Recommend from "../Homesections/Recommend.jsx";
+import Banner from "../Homesections/banner.jsx";
 
 export default function Home() {
   return (
-    <div className="h-full bg-black">
-      <div className="">
+    <div className=" max-w-[1350px] mx-auto bg-black">
+    
         <Hero/>
         <Carouselsection/>
         <Recommend/>
@@ -26,7 +26,7 @@ export default function Home() {
         <Trainer/>
         <Banner/>
         <Faq/>
-      </div>
+      
     </div>
   );
 }

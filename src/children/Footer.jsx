@@ -45,66 +45,6 @@ function LegalModal({ title, onClose, children }) {
   );
 }
 
-/* ── Privacy Policy ── */
-function PrivacyContent() {
-  const sections = [
-    {
-      title: "1. Information We Collect",
-      body: "We collect information you provide directly when you register for courses, contact us, or use our services — including your name, email address, phone number, payment details, and any other information you choose to share.",
-    },
-    {
-      title: "2. How We Use Your Information",
-      body: "We use collected data to provide and improve our services, process transactions, send technical notices and support messages, and communicate with you about courses, events, and promotions.",
-    },
-    {
-      title: "3. Information Sharing",
-      body: "We do not sell, trade, or rent your personal information to third parties. We may share data with trusted service providers who assist in operating our website, subject to strict confidentiality agreements.",
-    },
-    {
-      title: "4. Data Security",
-      body: "We implement industry-standard security measures to protect your personal information. No method of transmission over the Internet is 100% secure, but we strive to use commercially acceptable means to protect your data.",
-    },
-    {
-      title: "5. Cookies",
-      body: "Our website uses cookies to enhance your browsing experience. You can disable cookies through your browser settings, though this may affect some site functionality.",
-    },
-    {
-      title: "6. Third-Party Links",
-      body: "Our website may contain links to third-party sites. We are not responsible for the privacy practices or content of those sites and encourage you to review their privacy policies.",
-    },
-    {
-      title: "7. Children's Privacy",
-      body: "Our services are not directed to individuals under 13. We do not knowingly collect personal information from children. If we become aware of such collection, we will take steps to delete it promptly.",
-    },
-    {
-      title: "8. Changes to This Policy",
-      body: "We may update this Privacy Policy from time to time. We will notify you of significant changes by posting the new policy on this page with an updated revision date.",
-    },
-    {
-      title: "9. Contact Us",
-      body: "If you have questions about this Privacy Policy, please contact us at privacy@nihacs.com or write to NIHACS — National Institute of Hacking And Cyber Security.",
-    },
-  ];
-
-  return (
-    <>
-      <p className="text-gray-500 text-xs">Last updated: January 1, 2026</p>
-      <p>
-        At <span className="text-white font-semibold">NIHACS</span>, we are
-        committed to protecting your privacy and ensuring the security of your
-        personal information. This policy explains how we collect, use, and
-        safeguard your data.
-      </p>
-      {sections.map((s, i) => (
-        <div key={i}>
-          <h3 className="text-white font-semibold mb-1">{s.title}</h3>
-          <p>{s.body}</p>
-        </div>
-      ))}
-    </>
-  );
-}
-
 /* ── Terms & Conditions ── */
 function TermsContent() {
   const sections = [
@@ -170,7 +110,7 @@ function TermsContent() {
 
 /* ── Footer ── */
 const Footer = () => {
-  const [modal, setModal] = useState(null); // "privacy" | "terms" | null
+  const [modal, setModal] = useState(null);
 
   const socialLinks = [
     {
@@ -211,28 +151,17 @@ const Footer = () => {
     },
   ];
 
-  const credits = [
-    { text: "Web development by", name: "Your Name", href: "#" },
-    { text: "Illustrations by", name: "Designer Name", href: "#" },
-    { text: "Branding projects done with", name: "Agency Name", href: "#" },
-    { text: "Content by", name: "Writer Name", href: "#" },
-  ];
-
   return (
     <>
       {/* Modals */}
-      {modal === "privacy" && (
-        <LegalModal title="Privacy Policy" onClose={() => setModal(null)}>
-          <PrivacyContent />
-        </LegalModal>
-      )}
       {modal === "terms" && (
         <LegalModal title="Terms & Conditions" onClose={() => setModal(null)}>
           <TermsContent />
         </LegalModal>
       )}
 
-      <footer className="bg-black text-white relative overflow-hidden">
+      {/* Footer - Added mt-20 for spacing + relative z-10 for proper stacking */}
+      <footer className="bg-black text-white relative z-10 mt-20">
         {/* Red dot indicator */}
         <div className="absolute top-6 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-red-600 rounded-full" />
 
@@ -411,7 +340,6 @@ const Footer = () => {
 
             {/* Map */}
             <div className="relative w-full lg:w-96 h-44 sm:h-52 lg:h-56 rounded-xl overflow-hidden shadow-lg group flex-shrink-0">
-              {/* iframe (non-interactive, just for display) */}
               <iframe
                 src="https://www.google.com/maps?q=28.5415141,77.240201&z=17&output=embed"
                 width="100%"
@@ -422,7 +350,6 @@ const Footer = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="NIHACS Location"
               />
-              {/* Clickable overlay that opens Google Maps in a new tab */}
               <a
                 href="https://www.google.com/maps/place/National+Institute+of+Hacking+and+cyber+security+Institute/@28.5415141,77.240201,17z"
                 target="_blank"
@@ -430,11 +357,7 @@ const Footer = () => {
                 className="absolute inset-0 z-10 bg-black/40 hover:bg-black/10 transition-all duration-300 flex items-center justify-center"
               >
                 <span className="text-white text-base font-semibold group-hover:opacity-0 transition-opacity duration-300 flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                   View Location
@@ -449,12 +372,12 @@ const Footer = () => {
 
             {/* Legal links */}
             <div className="flex items-center gap-4 sm:gap-6">
-              <button
-                onClick={() => setModal("privacy")}
-                className="hover:text-red-500 transition-colors duration-200 underline underline-offset-2 cursor-pointer"
+              <Link
+                href="/privacy-policy"
+                className="hover:text-red-500 transition-colors duration-200 underline underline-offset-2"
               >
                 Privacy Policy
-              </button>
+              </Link>
               <span className="text-gray-700">|</span>
               <button
                 onClick={() => setModal("terms")}
