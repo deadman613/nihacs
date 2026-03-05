@@ -1,62 +1,56 @@
 "use client";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Carouselcourses from "../Homesections/carouselcourses";
 import { FormModal } from "../Homesections/form/page";
 
 /* ────────── CONFIG ────────── */
 const GRAY_WORDS  = ["SECURE",  "PROTECT", "DEFEND"];
 const WHITE_WORDS = ["STUFF",   "DATA",    "SYSTEMS"];
-const STAGGER_MS  = 45;   // delay between each letter starting its flip
-const FLIP_MS     = 100;  // duration of each letter's scale transition
+const STAGGER_MS  = 60;   // delay between each letter starting its flip
+const FLIP_MS     = 120;  // duration of each half of the flip (squish / unsquish)
 const PAUSE_MS    = 2800;
 
-const CYBER_TAGS = [
-  "Ethical Hacking","Bug Bounty","Penetration Testing","CTF",
-  "Malware Analysis","OSINT","Reverse Engineering","Red Teaming",
-  "Cryptography","Web Exploitation",
-];
-
 /* ─── Single letter flip ───────────────────────────────────────────────────
-   Phase lifecycle:  idle → squish → unsquish → idle
-   "squish"   : scaleX 1→0  (exit old char)
-   "unsquish" : scaleX 0→1  (enter new char)
+   Uses scaleY (top-to-bottom fold) so the character never appears upside-down.
+   Phase: idle → squish (scaleY 1→0) → swap char → unsquish (scaleY 0→1) → idle
 */
-function Letter({ char, flipping, delay, onDone }) {
-  const [scale, setScale]   = useState(1);
-  const [shown, setShown]   = useState(char);
-  const nextCharRef          = useRef(char);
-  const timerRef             = useRef(null);
+function Letter({ char, nextChar, shouldFlip, delay }) {
+  const [scaleY, setScaleY]     = useState(1);
+  const [displayed, setDisplayed] = useState(char);
+  const phaseRef                  = useRef("idle"); // "idle" | "squishing" | "unsquishing"
 
-  // When a new char comes in while flipping===true, kick off the animation
   useEffect(() => {
-    nextCharRef.current = char;
-    if (!flipping) {
-      setShown(char);
-      setScale(1);
+    if (!shouldFlip) {
+      setDisplayed(char);
+      setScaleY(1);
+      phaseRef.current = "idle";
       return;
     }
 
-    // Clear any previous timer
-    clearTimeout(timerRef.current);
+    // Reset then kick off squish after staggered delay
+    phaseRef.current = "idle";
+    setDisplayed(char);
+    setScaleY(1);
 
-    timerRef.current = setTimeout(() => {
-      // Step 1: squish to 0
-      setScale(0);
+    const t = setTimeout(() => {
+      phaseRef.current = "squishing";
+      setScaleY(0);
     }, delay);
 
-    return () => clearTimeout(timerRef.current);
-  }, [char, flipping, delay]);
+    return () => clearTimeout(t);
+  }, [shouldFlip, char, nextChar, delay]);
 
   const handleTransitionEnd = () => {
-    if (scale === 0) {
-      // Mid-flip: swap character, then unsquish
-      setShown(nextCharRef.current);
-      // Use rAF to ensure DOM paint before reversing
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setScale(1));
-      });
-    } else if (scale === 1 && flipping) {
-      onDone();
+    if (phaseRef.current === "squishing") {
+      // Mid-flip: swap to new character
+      phaseRef.current = "unsquishing";
+      setDisplayed(nextChar ?? " ");
+      // rAF double-pump ensures browser registers the scaleY:0 state before reversing
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => setScaleY(1))
+      );
+    } else if (phaseRef.current === "unsquishing") {
+      phaseRef.current = "idle";
     }
   };
 
@@ -64,100 +58,91 @@ function Letter({ char, flipping, delay, onDone }) {
     <span
       style={{
         display:         "inline-block",
-        transform:       `scaleX(${scale})`,
-        transition:      `transform ${FLIP_MS}ms cubic-bezier(0.4,0,0.6,1)`,
-        transformOrigin: "center",
+        transform:       `scaleY(${scaleY})`,
+        transition:      `transform ${FLIP_MS}ms cubic-bezier(0.4, 0, 0.6, 1)`,
+        transformOrigin: "50% 50%",
         whiteSpace:      "pre",
-        minWidth:        shown === " " ? "0.3em" : undefined,
+        minWidth:        displayed === " " ? "0.3em" : undefined,
       }}
       onTransitionEnd={handleTransitionEnd}
     >
-      {shown || "\u00A0"}
+      {displayed || "\u00A0"}
     </span>
   );
 }
 
 /* ─── A full word row ──────────────────────────────────────────────────────
-   Keeps a stable array of letter slots; pads/trims as word length changes.
+   Manages an array of <Letter> slots, padding shorter words with spaces
+   so letters always have a stable slot to animate in/out of.
 */
 function FlipRow({ word, color, style = {} }) {
-  const [displayWord, setDisplayWord] = useState(word);
-  const [letters, setLetters] = useState(word.split(""));
+  const [fromWord, setFromWord] = useState(word);
+  const [toWord,   setToWord]   = useState(word);
   const [flipping, setFlipping] = useState(false);
-  const prevWordRef = useRef(word);
+  const pendingRef               = useRef(null);
 
   useEffect(() => {
-    if (word === prevWordRef.current) return;
+    if (word === toWord) return;
 
-    prevWordRef.current = word;
+    // If already flipping, queue the next word
+    if (flipping) {
+      pendingRef.current = word;
+      return;
+    }
+
+    triggerFlip(toWord, word);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [word]);
+
+  function triggerFlip(from, to) {
+    setFromWord(from);
+    setToWord(to);
     setFlipping(true);
 
-    const maxLen = Math.max(displayWord.length, word.length);
+    const maxLen      = Math.max(from.length, to.length);
+    const totalMs     = maxLen * STAGGER_MS + FLIP_MS * 2 + 40; // small buffer
 
-    const paddedOld = displayWord.padEnd(maxLen, " ");
-    const paddedNew = word.padEnd(maxLen, " ");
-
-    const newLetters = Array.from({ length: maxLen }, (_, i) => ({
-      old: paddedOld[i],
-      new: paddedNew[i],
-      id: `${i}-${Date.now()}`
-    }));
-
-    setLetters(newLetters);
-
-    const totalDuration = maxLen * STAGGER_MS + FLIP_MS * 2;
-
-    const timer = setTimeout(() => {
-      setDisplayWord(word);
-      setLetters(word.split(""));
+    setTimeout(() => {
+      setFromWord(to);
       setFlipping(false);
-    }, totalDuration);
 
-    return () => clearTimeout(timer);
-  }, [word]);
+      // Process any queued word
+      if (pendingRef.current && pendingRef.current !== to) {
+        const next = pendingRef.current;
+        pendingRef.current = null;
+        triggerFlip(to, next);
+      }
+    }, totalMs);
+  }
+
+  const maxLen      = Math.max(fromWord.length, toWord.length);
+  const paddedFrom  = fromWord.padEnd(maxLen, " ");
+  const paddedTo    = toWord.padEnd(maxLen, " ");
 
   return (
     <div style={{ display: "inline-block", color, ...style }}>
-      {letters.map((letter, i) => {
-        if (!flipping) {
-          return <span key={i}>{letter}</span>;
-        }
-
-        return (
-          <span
-            key={letter.id}
-            style={{
-              display: "inline-block",
-              animation: `flipAnim ${FLIP_MS * 2}ms ease ${i * STAGGER_MS}ms forwards`,
-              transformOrigin: "center",
-            }}
-          >
-            {letter.new}
-          </span>
-        );
-      })}
-
-      <style jsx>{`
-        @keyframes flipAnim {
-          0%   { transform: scaleX(1); }
-          50%  { transform: scaleX(0); }
-          100% { transform: scaleX(1); }
-        }
-      `}</style>
+      {Array.from({ length: maxLen }, (_, i) => (
+        <Letter
+          key={i}
+          char={paddedFrom[i]}
+          nextChar={paddedTo[i]}
+          shouldFlip={flipping && paddedFrom[i] !== paddedTo[i]}
+          delay={i * STAGGER_MS}
+        />
+      ))}
     </div>
   );
 }
 
 /* ─── Hero ─────────────────────────────────────────────────────────────── */
 export default function Hero() {
-  const [idx, setIdx]       = useState(0);
-  const timerRef            = useRef(null);
+  const [idx, setIdx] = useState(0);
 
   useEffect(() => {
-    timerRef.current = setTimeout(() => {
+    const t = setTimeout(() => {
       setIdx(i => (i + 1) % GRAY_WORDS.length);
     }, PAUSE_MS);
-    return () => clearTimeout(timerRef.current);
+    return () => clearTimeout(t);
   }, [idx]);
 
   const curGray  = GRAY_WORDS[idx];
@@ -218,7 +203,7 @@ export default function Hero() {
           LET&apos;S
         </div>
 
-        {/* GRAY flipping word + dashes */}
+        {/* GRAY flipping word */}
         <div
           style={{
             display:        "flex",
@@ -229,13 +214,11 @@ export default function Hero() {
             minHeight:      "1.15em",
           }}
         >
-                <FlipRow
+          <FlipRow
             word={curGray}
             color="rgba(150,156,168,0.88)"
             style={bigType}
           />
-
-          
         </div>
 
         {/* WHITE flipping word */}
@@ -267,12 +250,12 @@ export default function Hero() {
         {/* Course tags */}
         <div
           style={{
-            display:         "grid",
+            display:             "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-            gap:             "12px",
-            marginTop:       "1.5rem",
-            maxWidth:        "750px",
-            marginInline:    "auto",
+            gap:                 "12px",
+            marginTop:           "1.5rem",
+            maxWidth:            "750px",
+            marginInline:        "auto",
           }}
         >
           <Carouselcourses />
@@ -280,7 +263,7 @@ export default function Hero() {
 
         {/* CTA buttons */}
         <div className="flex flex-wrap justify-center gap-4 mt-6">
-            <FormModal label="Start Hacking"  />
+          <FormModal label="Start Hacking" />
 
           <a
             href="/courses"
@@ -298,13 +281,18 @@ export default function Hero() {
               transition:     "transform .25s ease, box-shadow .25s ease",
               boxShadow:      "0 3px 16px rgba(255,30,0,0.6)",
             }}
-            onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.07)"; e.currentTarget.style.boxShadow = "0 6px 28px rgba(255,30,0,0.75)"; }}
-            onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)";    e.currentTarget.style.boxShadow = "0 3px 16px rgba(255,30,0,0.6)"; }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform  = "scale(1.07)";
+              e.currentTarget.style.boxShadow  = "0 6px 28px rgba(255,30,0,0.75)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform  = "scale(1)";
+              e.currentTarget.style.boxShadow  = "0 3px 16px rgba(255,30,0,0.6)";
+            }}
           >
             Explore Courses
           </a>
         </div>
-
       </div>
     </section>
   );
