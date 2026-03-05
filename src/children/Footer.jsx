@@ -161,7 +161,7 @@ const Footer = () => {
       )}
 
       {/* Footer - Added mt-20 for spacing + relative z-10 for proper stacking */}
-      <footer className="bg-black text-white relative z-10 mt-20">
+      <footer className="bg-black text-white relative z-10 mt-2">
         {/* Red dot indicator */}
         <div className="absolute top-6 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-red-600 rounded-full" />
 
