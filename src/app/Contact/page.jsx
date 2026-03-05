@@ -1,7 +1,7 @@
 "use client";
 import React from 'react'
-import Abouthero from '../../Homesections/About/Contacthero'
-import About from '../../Homesections/About/Contact'
+import Abouthero from '../../Homesections/contact/Contacthero'
+import About from '../../Homesections/contact/Contact'
 
 const page = () => {
   return (

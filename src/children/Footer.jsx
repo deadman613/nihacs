@@ -193,7 +193,7 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {[
                     { label: "Home", href: "/" },
-                    { label: "About", href: "/about" },
+                    { label: "About", href: "/about-us" },
                     { label: "Blog", href: "/blog" },
                     { label: "Contact", href: "/contact" },
                   ].map((item, index) => (
@@ -312,7 +312,7 @@ const Footer = () => {
                       href="mailto:info@nihacs.com"
                       className="hover:text-red-600 transition-colors"
                     >
-                      info@nifase.com
+                      info@nihacs.com
                     </a>
                   </li>
                 </ul>
