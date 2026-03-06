@@ -160,7 +160,7 @@ export function FormModal({ label = "Contact Us" }) {
     fontWeight:     800,
     fontSize:       "clamp(0.9rem, 2.2vw, 1.1rem)",
     padding:        "clamp(0.75rem, 2vw, 1rem) clamp(1.6rem, 5vw, 2.4rem)",
-    borderRadius:   9999,
+    borderRadius:   99,
     border:         "none",
     cursor:         "pointer",
     fontFamily:     '"Helvetica Neue", Arial, sans-serif',

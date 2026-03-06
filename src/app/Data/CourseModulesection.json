@@ -1,0 +1,634 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "slug": "web-penetration-testing-bug-bounty-hunting",
+      "title": "Web Penetration Testing And Bug Bounty Hunting",
+      "duration": "6 Months",
+      "totalModules": 8,
+      "totalLessons": 56,
+      "totalHours": "180+ Hours",
+      "modules": [
+        {
+          "moduleNumber": 1,
+          "title": "Fundamentals of Web Security & Penetration Testing",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "1.1", "title": "Introduction to Cybersecurity & Ethical Hacking", "type": "video", "duration": "45 min" },
+            { "id": "1.2", "title": "Legal & Ethical Framework – Rules of Engagement", "type": "video", "duration": "30 min" },
+            { "id": "1.3", "title": "Setting Up Your Hacking Lab (Kali Linux, VMs, VPN)", "type": "lab", "duration": "60 min" },
+            { "id": "1.4", "title": "HTTP/HTTPS Protocol Deep Dive", "type": "video", "duration": "50 min" },
+            { "id": "1.5", "title": "Web Application Architecture Overview", "type": "video", "duration": "40 min" },
+            { "id": "1.6", "title": "Burp Suite Setup & Core Features", "type": "lab", "duration": "60 min" },
+            { "id": "1.7", "title": "Module Assessment – Lab Quiz", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 2,
+          "title": "Reconnaissance & OSINT",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "2.1", "title": "Passive vs Active Reconnaissance", "type": "video", "duration": "40 min" },
+            { "id": "2.2", "title": "WHOIS, DNS Enumeration & Subdomain Discovery", "type": "lab", "duration": "60 min" },
+            { "id": "2.3", "title": "Google Dorking & Advanced Search Operators", "type": "video", "duration": "45 min" },
+            { "id": "2.4", "title": "Shodan, Censys & Attack Surface Mapping", "type": "lab", "duration": "60 min" },
+            { "id": "2.5", "title": "Email Harvesting & Social Engineering Recon", "type": "video", "duration": "35 min" },
+            { "id": "2.6", "title": "Maltego & Recon-ng Automation", "type": "lab", "duration": "75 min" },
+            { "id": "2.7", "title": "GitHub & Source Code Leakage Hunting", "type": "lab", "duration": "60 min" },
+            { "id": "2.8", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 3,
+          "title": "Scanning & Vulnerability Assessment",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "3.1", "title": "Port Scanning with Nmap – All Flags Explained", "type": "lab", "duration": "60 min" },
+            { "id": "3.2", "title": "Service & Version Detection", "type": "lab", "duration": "45 min" },
+            { "id": "3.3", "title": "Web Application Scanning with Nikto & OWASP ZAP", "type": "lab", "duration": "60 min" },
+            { "id": "3.4", "title": "Directory & File Brute Forcing (Gobuster, Feroxbuster)", "type": "lab", "duration": "60 min" },
+            { "id": "3.5", "title": "Technology Fingerprinting (Wappalyzer, WhatWeb)", "type": "video", "duration": "30 min" },
+            { "id": "3.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 4,
+          "title": "OWASP Top 10 – Deep Exploitation",
+          "duration": "5 Weeks",
+          "lessons": [
+            { "id": "4.1", "title": "SQL Injection – Manual & Automated (SQLMap)", "type": "lab", "duration": "90 min" },
+            { "id": "4.2", "title": "Blind SQLi, Time-Based & Out-of-Band", "type": "lab", "duration": "75 min" },
+            { "id": "4.3", "title": "Cross-Site Scripting (Reflected, Stored, DOM)", "type": "lab", "duration": "90 min" },
+            { "id": "4.4", "title": "Cross-Site Request Forgery (CSRF)", "type": "lab", "duration": "60 min" },
+            { "id": "4.5", "title": "Broken Authentication & Session Hijacking", "type": "lab", "duration": "75 min" },
+            { "id": "4.6", "title": "Insecure Direct Object Reference (IDOR)", "type": "lab", "duration": "60 min" },
+            { "id": "4.7", "title": "File Upload Vulnerabilities & Bypasses", "type": "lab", "duration": "75 min" },
+            { "id": "4.8", "title": "Server-Side Request Forgery (SSRF)", "type": "lab", "duration": "60 min" },
+            { "id": "4.9", "title": "XML External Entity (XXE) Injection", "type": "lab", "duration": "60 min" },
+            { "id": "4.10", "title": "Insecure Deserialization", "type": "lab", "duration": "75 min" },
+            { "id": "4.11", "title": "Security Misconfiguration & Default Credentials", "type": "lab", "duration": "45 min" },
+            { "id": "4.12", "title": "Module Assessment – CTF Challenge", "type": "quiz", "duration": "120 min" }
+          ]
+        },
+        {
+          "moduleNumber": 5,
+          "title": "Advanced Exploitation Techniques",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "5.1", "title": "Business Logic Vulnerabilities", "type": "lab", "duration": "75 min" },
+            { "id": "5.2", "title": "API Security Testing (REST & GraphQL)", "type": "lab", "duration": "90 min" },
+            { "id": "5.3", "title": "OAuth 2.0 & JWT Exploitation", "type": "lab", "duration": "75 min" },
+            { "id": "5.4", "title": "HTTP Request Smuggling & Cache Poisoning", "type": "lab", "duration": "60 min" },
+            { "id": "5.5", "title": "Subdomain Takeover Techniques", "type": "lab", "duration": "60 min" },
+            { "id": "5.6", "title": "Web Cache Deception & Race Conditions", "type": "lab", "duration": "60 min" },
+            { "id": "5.7", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 6,
+          "title": "Bug Bounty Platforms & Methodology",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "6.1", "title": "HackerOne & Bugcrowd Platform Walkthrough", "type": "video", "duration": "45 min" },
+            { "id": "6.2", "title": "Reading & Interpreting Scope Documents", "type": "video", "duration": "40 min" },
+            { "id": "6.3", "title": "Building a Recon Automation Workflow", "type": "lab", "duration": "90 min" },
+            { "id": "6.4", "title": "Finding P1 & P2 Bugs Efficiently", "type": "video", "duration": "60 min" },
+            { "id": "6.5", "title": "Chaining Vulnerabilities for High Impact", "type": "lab", "duration": "90 min" },
+            { "id": "6.6", "title": "Duplicate Avoidance Strategies", "type": "video", "duration": "30 min" },
+            { "id": "6.7", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 7,
+          "title": "Professional Report Writing",
+          "duration": "1 Week",
+          "lessons": [
+            { "id": "7.1", "title": "Anatomy of a Great Bug Report", "type": "video", "duration": "45 min" },
+            { "id": "7.2", "title": "CVSS Scoring & Severity Classification", "type": "video", "duration": "40 min" },
+            { "id": "7.3", "title": "Writing PoC (Proof of Concept) Steps", "type": "lab", "duration": "60 min" },
+            { "id": "7.4", "title": "Real Bug Report Case Studies", "type": "video", "duration": "50 min" },
+            { "id": "7.5", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 8,
+          "title": "Capstone – Live Bug Bounty Project",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "8.1", "title": "Selecting Your Target Program", "type": "video", "duration": "30 min" },
+            { "id": "8.2", "title": "Full Recon & Enumeration on Live Target", "type": "lab", "duration": "180 min" },
+            { "id": "8.3", "title": "Vulnerability Discovery & Exploitation", "type": "lab", "duration": "180 min" },
+            { "id": "8.4", "title": "Writing & Submitting the Final Report", "type": "lab", "duration": "90 min" },
+            { "id": "8.5", "title": "Peer Review & Mentor Feedback", "type": "project", "duration": "60 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "basic-ethical-hacking",
+      "title": "Basic Ethical Hacking",
+      "duration": "3 Months",
+      "totalModules": 6,
+      "totalLessons": 36,
+      "totalHours": "80+ Hours",
+      "modules": [
+        {
+          "moduleNumber": 1,
+          "title": "Networking Fundamentals for Hackers",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "1.1", "title": "OSI & TCP/IP Model in Depth", "type": "video", "duration": "50 min" },
+            { "id": "1.2", "title": "IP Addressing, Subnetting & CIDR", "type": "video", "duration": "60 min" },
+            { "id": "1.3", "title": "Common Protocols – DNS, DHCP, ARP, HTTP", "type": "video", "duration": "45 min" },
+            { "id": "1.4", "title": "Wireshark – Packet Capture & Analysis", "type": "lab", "duration": "75 min" },
+            { "id": "1.5", "title": "Network Scanning with Nmap", "type": "lab", "duration": "60 min" },
+            { "id": "1.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 2,
+          "title": "Linux Essentials for Security",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "2.1", "title": "Linux File System & Navigation", "type": "video", "duration": "45 min" },
+            { "id": "2.2", "title": "Users, Permissions & Privilege Escalation Basics", "type": "lab", "duration": "60 min" },
+            { "id": "2.3", "title": "Bash Scripting for Automation", "type": "lab", "duration": "75 min" },
+            { "id": "2.4", "title": "Kali Linux Tools Overview", "type": "video", "duration": "45 min" },
+            { "id": "2.5", "title": "Installing & Configuring Hacking Tools", "type": "lab", "duration": "60 min" },
+            { "id": "2.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 3,
+          "title": "Password Attacks & Cracking",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "3.1", "title": "How Passwords Are Stored (Hashing, Salting)", "type": "video", "duration": "40 min" },
+            { "id": "3.2", "title": "Dictionary & Brute Force Attacks", "type": "lab", "duration": "60 min" },
+            { "id": "3.3", "title": "Hashcat & John the Ripper – Practical Use", "type": "lab", "duration": "75 min" },
+            { "id": "3.4", "title": "Credential Stuffing & Password Spraying", "type": "lab", "duration": "60 min" },
+            { "id": "3.5", "title": "Securing Passwords – Best Practices", "type": "video", "duration": "30 min" },
+            { "id": "3.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 4,
+          "title": "Man-in-the-Middle (MITM) Attacks",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "4.1", "title": "ARP Spoofing & Poisoning", "type": "lab", "duration": "75 min" },
+            { "id": "4.2", "title": "DNS Spoofing & Hijacking", "type": "lab", "duration": "60 min" },
+            { "id": "4.3", "title": "SSL Stripping Attacks", "type": "lab", "duration": "60 min" },
+            { "id": "4.4", "title": "Ettercap & Bettercap – Practical MITM", "type": "lab", "duration": "75 min" },
+            { "id": "4.5", "title": "Defending Against MITM Attacks", "type": "video", "duration": "40 min" },
+            { "id": "4.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 5,
+          "title": "System Hacking & Exploitation Basics",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "5.1", "title": "Metasploit Framework – Introduction & Setup", "type": "lab", "duration": "75 min" },
+            { "id": "5.2", "title": "Exploiting Vulnerabilities with Metasploit", "type": "lab", "duration": "90 min" },
+            { "id": "5.3", "title": "Post-Exploitation – Meterpreter Basics", "type": "lab", "duration": "60 min" },
+            { "id": "5.4", "title": "Social Engineering with SET", "type": "lab", "duration": "60 min" },
+            { "id": "5.5", "title": "Covering Tracks & Log Clearing", "type": "video", "duration": "35 min" },
+            { "id": "5.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 6,
+          "title": "Incident Response & Defense",
+          "duration": "2 Weeks",
+          "lessons": [
+            { "id": "6.1", "title": "Incident Response Lifecycle", "type": "video", "duration": "45 min" },
+            { "id": "6.2", "title": "Log Analysis & Threat Detection", "type": "lab", "duration": "60 min" },
+            { "id": "6.3", "title": "Firewall & IDS/IPS Configuration", "type": "lab", "duration": "60 min" },
+            { "id": "6.4", "title": "Vulnerability Patching Workflow", "type": "video", "duration": "40 min" },
+            { "id": "6.5", "title": "Capstone – Mini Penetration Test Report", "type": "project", "duration": "120 min" },
+            { "id": "6.6", "title": "Final Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "bachelor-in-cybersecurity",
+      "title": "Bachelor in Cybersecurity",
+      "duration": "3 Years",
+      "totalModules": 12,
+      "totalLessons": 80,
+      "totalHours": "1200+ Hours",
+      "modules": [
+        {
+          "moduleNumber": 1,
+          "title": "Year 1 – Semester 1: Foundations of Computing & Security",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "1.1", "title": "Introduction to Computer Science & IT Fundamentals", "type": "video", "duration": "60 min" },
+            { "id": "1.2", "title": "Operating Systems – Windows & Linux", "type": "lab", "duration": "90 min" },
+            { "id": "1.3", "title": "Networking Basics – TCP/IP, OSI Model", "type": "video", "duration": "75 min" },
+            { "id": "1.4", "title": "Introduction to Cybersecurity Principles", "type": "video", "duration": "60 min" },
+            { "id": "1.5", "title": "Mathematics for Security – Logic & Set Theory", "type": "video", "duration": "60 min" },
+            { "id": "1.6", "title": "Introduction to Programming (Python)", "type": "lab", "duration": "90 min" },
+            { "id": "1.7", "title": "Semester 1 Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 2,
+          "title": "Year 1 – Semester 2: Core Security Concepts",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "2.1", "title": "Cryptography – Symmetric & Asymmetric Encryption", "type": "video", "duration": "75 min" },
+            { "id": "2.2", "title": "PKI, Certificates & Digital Signatures", "type": "video", "duration": "60 min" },
+            { "id": "2.3", "title": "Network Security – Firewalls, VPNs, IDS/IPS", "type": "lab", "duration": "90 min" },
+            { "id": "2.4", "title": "Database Security & SQL Fundamentals", "type": "lab", "duration": "75 min" },
+            { "id": "2.5", "title": "Linux System Administration", "type": "lab", "duration": "90 min" },
+            { "id": "2.6", "title": "Ethics & Law in Cybersecurity", "type": "video", "duration": "45 min" },
+            { "id": "2.7", "title": "Semester 2 Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 3,
+          "title": "Year 2 – Semester 1: Web & Application Security",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "3.1", "title": "OWASP Top 10 – Detailed Study", "type": "video", "duration": "90 min" },
+            { "id": "3.2", "title": "SQL Injection – Detection & Exploitation", "type": "lab", "duration": "90 min" },
+            { "id": "3.3", "title": "XSS, CSRF & Injection Flaws", "type": "lab", "duration": "90 min" },
+            { "id": "3.4", "title": "Secure Coding Principles & Code Review", "type": "lab", "duration": "75 min" },
+            { "id": "3.5", "title": "Web Application Firewall (WAF) Configuration", "type": "lab", "duration": "60 min" },
+            { "id": "3.6", "title": "API Security Fundamentals", "type": "video", "duration": "60 min" },
+            { "id": "3.7", "title": "Semester Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 4,
+          "title": "Year 2 – Semester 2: Ethical Hacking & Pen Testing",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "4.1", "title": "Penetration Testing Methodology (PTES)", "type": "video", "duration": "60 min" },
+            { "id": "4.2", "title": "Reconnaissance & Enumeration Techniques", "type": "lab", "duration": "90 min" },
+            { "id": "4.3", "title": "Exploitation with Metasploit Framework", "type": "lab", "duration": "90 min" },
+            { "id": "4.4", "title": "Wireless Network Hacking (WPA2, WPS)", "type": "lab", "duration": "75 min" },
+            { "id": "4.5", "title": "Post-Exploitation & Pivoting", "type": "lab", "duration": "75 min" },
+            { "id": "4.6", "title": "Pen Test Report Writing", "type": "lab", "duration": "60 min" },
+            { "id": "4.7", "title": "Semester Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 5,
+          "title": "Year 2 – Semester 3: Digital Forensics",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "5.1", "title": "Digital Forensics Fundamentals & Chain of Custody", "type": "video", "duration": "60 min" },
+            { "id": "5.2", "title": "Disk Imaging & Evidence Acquisition", "type": "lab", "duration": "90 min" },
+            { "id": "5.3", "title": "File System Forensics (NTFS, ext4)", "type": "lab", "duration": "75 min" },
+            { "id": "5.4", "title": "Memory Forensics with Volatility", "type": "lab", "duration": "90 min" },
+            { "id": "5.5", "title": "Network Forensics & Log Analysis", "type": "lab", "duration": "75 min" },
+            { "id": "5.6", "title": "Forensic Report Writing", "type": "lab", "duration": "60 min" },
+            { "id": "5.7", "title": "Semester Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 6,
+          "title": "Year 2 – Semester 4: Network Security & Defense",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "6.1", "title": "Advanced Network Defense Strategies", "type": "video", "duration": "60 min" },
+            { "id": "6.2", "title": "SIEM Setup & Log Management (Splunk)", "type": "lab", "duration": "90 min" },
+            { "id": "6.3", "title": "Intrusion Detection with Snort & Suricata", "type": "lab", "duration": "75 min" },
+            { "id": "6.4", "title": "Zero Trust Network Architecture", "type": "video", "duration": "60 min" },
+            { "id": "6.5", "title": "VPN, SD-WAN & Secure Remote Access", "type": "lab", "duration": "60 min" },
+            { "id": "6.6", "title": "Semester Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 7,
+          "title": "Year 3 – Semester 1: Cloud Security",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "7.1", "title": "Cloud Computing Models – IaaS, PaaS, SaaS", "type": "video", "duration": "45 min" },
+            { "id": "7.2", "title": "AWS Security – IAM, S3, CloudTrail", "type": "lab", "duration": "90 min" },
+            { "id": "7.3", "title": "Azure Security Center & Sentinel", "type": "lab", "duration": "90 min" },
+            { "id": "7.4", "title": "Container Security – Docker & Kubernetes", "type": "lab", "duration": "75 min" },
+            { "id": "7.5", "title": "Cloud Misconfiguration Attacks & Defense", "type": "lab", "duration": "75 min" },
+            { "id": "7.6", "title": "Semester Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 8,
+          "title": "Year 3 – Semester 2: Malware Analysis & Reverse Engineering",
+          "duration": "6 Weeks",
+          "lessons": [
+            { "id": "8.1", "title": "Types of Malware – Viruses, Trojans, Ransomware", "type": "video", "duration": "60 min" },
+            { "id": "8.2", "title": "Static Malware Analysis", "type": "lab", "duration": "90 min" },
+            { "id": "8.3", "title": "Dynamic Malware Analysis in Sandbox", "type": "lab", "duration": "90 min" },
+            { "id": "8.4", "title": "Reverse Engineering with Ghidra & IDA", "type": "lab", "duration": "120 min" },
+            { "id": "8.5", "title": "Writing YARA Rules for Detection", "type": "lab", "duration": "60 min" },
+            { "id": "8.6", "title": "Semester Assessment", "type": "quiz", "duration": "60 min" }
+          ]
+        },
+        {
+          "moduleNumber": 9,
+          "title": "Year 3 – Semester 3: Governance, Risk & Compliance (GRC)",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "9.1", "title": "ISO 27001 & NIST Cybersecurity Framework", "type": "video", "duration": "60 min" },
+            { "id": "9.2", "title": "Risk Assessment & Risk Management", "type": "video", "duration": "60 min" },
+            { "id": "9.3", "title": "GDPR, HIPAA & Regulatory Compliance", "type": "video", "duration": "60 min" },
+            { "id": "9.4", "title": "Security Auditing & Policy Writing", "type": "lab", "duration": "75 min" },
+            { "id": "9.5", "title": "Semester Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 10,
+          "title": "Year 3 – Semester 4: Advanced Topics & Specializations",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "10.1", "title": "IoT & Embedded Systems Security", "type": "video", "duration": "60 min" },
+            { "id": "10.2", "title": "Mobile Application Security (Android & iOS)", "type": "lab", "duration": "90 min" },
+            { "id": "10.3", "title": "AI & Machine Learning in Cybersecurity", "type": "video", "duration": "60 min" },
+            { "id": "10.4", "title": "Threat Intelligence & Dark Web Monitoring", "type": "lab", "duration": "75 min" },
+            { "id": "10.5", "title": "Semester Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 11,
+          "title": "Industry Certifications Preparation",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "11.1", "title": "CompTIA Security+ Exam Prep", "type": "video", "duration": "90 min" },
+            { "id": "11.2", "title": "CEH (Certified Ethical Hacker) Overview", "type": "video", "duration": "75 min" },
+            { "id": "11.3", "title": "OSCP Roadmap & Preparation Strategy", "type": "video", "duration": "60 min" },
+            { "id": "11.4", "title": "Mock Certification Exams", "type": "quiz", "duration": "120 min" }
+          ]
+        },
+        {
+          "moduleNumber": 12,
+          "title": "Final Year Project & Dissertation",
+          "duration": "8 Weeks",
+          "lessons": [
+            { "id": "12.1", "title": "Selecting a Research Topic", "type": "video", "duration": "30 min" },
+            { "id": "12.2", "title": "Research Methodology & Literature Review", "type": "project", "duration": "120 min" },
+            { "id": "12.3", "title": "Practical Implementation & Lab Work", "type": "lab", "duration": "240 min" },
+            { "id": "12.4", "title": "Dissertation Writing & Documentation", "type": "project", "duration": "180 min" },
+            { "id": "12.5", "title": "Viva & Final Presentation", "type": "project", "duration": "60 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "master-in-cybersecurity-ethical-hacking",
+      "title": "Master in Cybersecurity And Ethical Hacking",
+      "duration": "2 Years",
+      "totalModules": 10,
+      "totalLessons": 60,
+      "totalHours": "800+ Hours",
+      "modules": [
+        {
+          "moduleNumber": 1,
+          "title": "Advanced Cryptography & Secure Communications",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "1.1", "title": "Post-Quantum Cryptography", "type": "video", "duration": "75 min" },
+            { "id": "1.2", "title": "Elliptic Curve Cryptography (ECC)", "type": "video", "duration": "60 min" },
+            { "id": "1.3", "title": "TLS 1.3 Deep Dive & Implementation", "type": "lab", "duration": "90 min" },
+            { "id": "1.4", "title": "Key Management & HSM", "type": "lab", "duration": "75 min" },
+            { "id": "1.5", "title": "Secure Messaging & E2E Encryption", "type": "lab", "duration": "60 min" },
+            { "id": "1.6", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 2,
+          "title": "Zero Trust Architecture & IAM",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "2.1", "title": "Zero Trust Principles & Design", "type": "video", "duration": "60 min" },
+            { "id": "2.2", "title": "Identity & Access Management (IAM) Deep Dive", "type": "lab", "duration": "90 min" },
+            { "id": "2.3", "title": "Privileged Access Management (PAM)", "type": "lab", "duration": "75 min" },
+            { "id": "2.4", "title": "MFA, SSO & Federation (SAML, OAuth)", "type": "lab", "duration": "75 min" },
+            { "id": "2.5", "title": "Implementing Zero Trust in Enterprise", "type": "lab", "duration": "90 min" },
+            { "id": "2.6", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 3,
+          "title": "Advanced Cloud Security",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "3.1", "title": "Multi-Cloud Security Architecture", "type": "video", "duration": "60 min" },
+            { "id": "3.2", "title": "Cloud Penetration Testing (AWS, Azure, GCP)", "type": "lab", "duration": "120 min" },
+            { "id": "3.3", "title": "Serverless Security & Lambda Attacks", "type": "lab", "duration": "75 min" },
+            { "id": "3.4", "title": "Cloud SIEM & Incident Response", "type": "lab", "duration": "90 min" },
+            { "id": "3.5", "title": "DevSecOps & CI/CD Pipeline Security", "type": "lab", "duration": "90 min" },
+            { "id": "3.6", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 4,
+          "title": "Red Team Operations",
+          "duration": "5 Weeks",
+          "lessons": [
+            { "id": "4.1", "title": "Red Team vs Blue Team vs Purple Team", "type": "video", "duration": "45 min" },
+            { "id": "4.2", "title": "Advanced Reconnaissance & OSINT at Scale", "type": "lab", "duration": "90 min" },
+            { "id": "4.3", "title": "Custom Exploit Development", "type": "lab", "duration": "120 min" },
+            { "id": "4.4", "title": "C2 Frameworks – Cobalt Strike & Havoc", "type": "lab", "duration": "120 min" },
+            { "id": "4.5", "title": "Active Directory Attacks – Kerberoasting, Pass-the-Hash", "type": "lab", "duration": "120 min" },
+            { "id": "4.6", "title": "Lateral Movement & Persistence Techniques", "type": "lab", "duration": "90 min" },
+            { "id": "4.7", "title": "Red Team Report & Debrief", "type": "lab", "duration": "60 min" },
+            { "id": "4.8", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 5,
+          "title": "Threat Intelligence & Hunting",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "5.1", "title": "Threat Intelligence Lifecycle & Sources", "type": "video", "duration": "60 min" },
+            { "id": "5.2", "title": "MITRE ATT&CK Framework Deep Dive", "type": "lab", "duration": "90 min" },
+            { "id": "5.3", "title": "Threat Hunting with SIEM & EDR", "type": "lab", "duration": "90 min" },
+            { "id": "5.4", "title": "Dark Web Intelligence Gathering", "type": "lab", "duration": "75 min" },
+            { "id": "5.5", "title": "Building a Threat Intel Program", "type": "video", "duration": "60 min" },
+            { "id": "5.6", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 6,
+          "title": "Advanced Malware Analysis & Reverse Engineering",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "6.1", "title": "Advanced Static Analysis Techniques", "type": "lab", "duration": "90 min" },
+            { "id": "6.2", "title": "Advanced Dynamic Analysis & Sandbox Evasion", "type": "lab", "duration": "90 min" },
+            { "id": "6.3", "title": "Rootkit & Bootkit Analysis", "type": "lab", "duration": "90 min" },
+            { "id": "6.4", "title": "Ransomware – Dissection & Defense", "type": "lab", "duration": "90 min" },
+            { "id": "6.5", "title": "Writing Custom Detection Rules", "type": "lab", "duration": "75 min" },
+            { "id": "6.6", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 7,
+          "title": "Security Architecture & Enterprise Defense",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "7.1", "title": "Designing Secure Enterprise Architectures", "type": "video", "duration": "75 min" },
+            { "id": "7.2", "title": "SOC Design & Maturity Model", "type": "video", "duration": "60 min" },
+            { "id": "7.3", "title": "XDR – Extended Detection & Response", "type": "lab", "duration": "90 min" },
+            { "id": "7.4", "title": "Cyber Resilience & Business Continuity", "type": "video", "duration": "60 min" },
+            { "id": "7.5", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 8,
+          "title": "Governance, Risk, Compliance & Legal",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "8.1", "title": "CISO Role & Responsibilities", "type": "video", "duration": "60 min" },
+            { "id": "8.2", "title": "Enterprise Risk Management (ERM)", "type": "video", "duration": "60 min" },
+            { "id": "8.3", "title": "Regulatory Compliance – GDPR, PCI-DSS, SOC 2", "type": "video", "duration": "75 min" },
+            { "id": "8.4", "title": "Cyber Insurance & Legal Liability", "type": "video", "duration": "45 min" },
+            { "id": "8.5", "title": "Module Assessment", "type": "quiz", "duration": "30 min" }
+          ]
+        },
+        {
+          "moduleNumber": 9,
+          "title": "Research & Publications",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "9.1", "title": "Academic Research Methodology in Cybersecurity", "type": "video", "duration": "60 min" },
+            { "id": "9.2", "title": "CVE Discovery & Responsible Disclosure", "type": "lab", "duration": "90 min" },
+            { "id": "9.3", "title": "Writing & Publishing Security Research Papers", "type": "project", "duration": "120 min" },
+            { "id": "9.4", "title": "Conference Talks – CFP & Presentation Skills", "type": "video", "duration": "45 min" }
+          ]
+        },
+        {
+          "moduleNumber": 10,
+          "title": "Master's Thesis – Advanced Cybersecurity Research",
+          "duration": "10 Weeks",
+          "lessons": [
+            { "id": "10.1", "title": "Thesis Topic Selection & Proposal", "type": "project", "duration": "60 min" },
+            { "id": "10.2", "title": "Literature Review & Research Gap Analysis", "type": "project", "duration": "120 min" },
+            { "id": "10.3", "title": "Practical Research & Lab Implementation", "type": "lab", "duration": "300 min" },
+            { "id": "10.4", "title": "Thesis Writing, Review & Submission", "type": "project", "duration": "240 min" },
+            { "id": "10.5", "title": "Viva Voce & Panel Defense", "type": "project", "duration": "90 min" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "diploma-in-cybersecurity",
+      "title": "Diploma in Cybersecurity",
+      "duration": "12 Months",
+      "totalModules": 8,
+      "totalLessons": 46,
+      "totalHours": "400+ Hours",
+      "modules": [
+        {
+          "moduleNumber": 1,
+          "title": "Security Operations Center (SOC) Fundamentals",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "1.1", "title": "SOC Roles, Tiers & Responsibilities", "type": "video", "duration": "45 min" },
+            { "id": "1.2", "title": "SOC Tools Overview – SIEM, EDR, SOAR", "type": "video", "duration": "60 min" },
+            { "id": "1.3", "title": "Alert Triage & Prioritization", "type": "lab", "duration": "75 min" },
+            { "id": "1.4", "title": "Setting Up Splunk SIEM", "type": "lab", "duration": "90 min" },
+            { "id": "1.5", "title": "Real-Time Threat Monitoring Dashboard", "type": "lab", "duration": "75 min" },
+            { "id": "1.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 2,
+          "title": "SIEM – Deep Dive & Use Cases",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "2.1", "title": "Log Sources – Windows, Linux, Network Devices", "type": "lab", "duration": "75 min" },
+            { "id": "2.2", "title": "Writing SIEM Correlation Rules", "type": "lab", "duration": "90 min" },
+            { "id": "2.3", "title": "Detecting Brute Force, Lateral Movement & Exfiltration", "type": "lab", "duration": "90 min" },
+            { "id": "2.4", "title": "Splunk SPL – Search & Reporting", "type": "lab", "duration": "75 min" },
+            { "id": "2.5", "title": "Building Custom Dashboards", "type": "lab", "duration": "60 min" },
+            { "id": "2.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 3,
+          "title": "Threat Hunting Methodology",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "3.1", "title": "Hypothesis-Based Threat Hunting", "type": "video", "duration": "60 min" },
+            { "id": "3.2", "title": "MITRE ATT&CK for Threat Hunters", "type": "lab", "duration": "90 min" },
+            { "id": "3.3", "title": "Hunting for Living-off-the-Land Attacks", "type": "lab", "duration": "90 min" },
+            { "id": "3.4", "title": "Endpoint Hunting with Velociraptor", "type": "lab", "duration": "90 min" },
+            { "id": "3.5", "title": "Documenting Hunt Findings", "type": "video", "duration": "45 min" },
+            { "id": "3.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 4,
+          "title": "Digital Forensics",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "4.1", "title": "Forensic Investigation Process & Legal Considerations", "type": "video", "duration": "60 min" },
+            { "id": "4.2", "title": "Disk Forensics – Autopsy & FTK", "type": "lab", "duration": "90 min" },
+            { "id": "4.3", "title": "Memory Forensics – Volatility 3", "type": "lab", "duration": "90 min" },
+            { "id": "4.4", "title": "Browser & Email Forensics", "type": "lab", "duration": "75 min" },
+            { "id": "4.5", "title": "Writing a Forensic Report", "type": "lab", "duration": "60 min" },
+            { "id": "4.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 5,
+          "title": "Incident Response",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "5.1", "title": "IR Lifecycle – Preparation to Lessons Learned", "type": "video", "duration": "60 min" },
+            { "id": "5.2", "title": "Incident Containment & Eradication", "type": "lab", "duration": "90 min" },
+            { "id": "5.3", "title": "Ransomware Incident Response Playbook", "type": "lab", "duration": "90 min" },
+            { "id": "5.4", "title": "Tabletop Exercises & Simulations", "type": "lab", "duration": "90 min" },
+            { "id": "5.5", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 6,
+          "title": "Compliance & GRC",
+          "duration": "3 Weeks",
+          "lessons": [
+            { "id": "6.1", "title": "Introduction to GRC Frameworks", "type": "video", "duration": "45 min" },
+            { "id": "6.2", "title": "ISO 27001 Implementation", "type": "lab", "duration": "75 min" },
+            { "id": "6.3", "title": "NIST CSF & Risk Management", "type": "lab", "duration": "75 min" },
+            { "id": "6.4", "title": "Security Policy & Procedure Writing", "type": "lab", "duration": "60 min" },
+            { "id": "6.5", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 7,
+          "title": "Python for Security Automation",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "7.1", "title": "Python Fundamentals for Security Professionals", "type": "lab", "duration": "75 min" },
+            { "id": "7.2", "title": "Automating Reconnaissance with Python", "type": "lab", "duration": "90 min" },
+            { "id": "7.3", "title": "Building a Log Parser & Alerting Tool", "type": "lab", "duration": "90 min" },
+            { "id": "7.4", "title": "API Integration with Security Platforms", "type": "lab", "duration": "75 min" },
+            { "id": "7.5", "title": "Automating Incident Response Tasks", "type": "lab", "duration": "75 min" },
+            { "id": "7.6", "title": "Module Assessment", "type": "quiz", "duration": "20 min" }
+          ]
+        },
+        {
+          "moduleNumber": 8,
+          "title": "Capstone Project – Full SOC Simulation",
+          "duration": "4 Weeks",
+          "lessons": [
+            { "id": "8.1", "title": "Setting Up a Home SOC Environment", "type": "lab", "duration": "120 min" },
+            { "id": "8.2", "title": "Simulated Attack Scenarios & Detection", "type": "lab", "duration": "180 min" },
+            { "id": "8.3", "title": "Threat Hunt & Forensic Investigation", "type": "lab", "duration": "150 min" },
+            { "id": "8.4", "title": "Final IR Report & Presentation", "type": "project", "duration": "90 min" },
+            { "id": "8.5", "title": "Mentor Review & Certification", "type": "project", "duration": "60 min" }
+          ]
+        }
+      ]
+    }
+  ]
+}

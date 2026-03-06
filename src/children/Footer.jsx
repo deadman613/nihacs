@@ -324,18 +324,17 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 mb-8">
             {/* Brand */}
             <div className="text-center lg:text-left flex-shrink-0">
-              <h2
-                className="font-black text-white leading-none tracking-tighter"
+              <img
+                src="/logo/logo.png"
+                alt="NIHACS"
                 style={{
-                  fontSize: "clamp(3rem, 15vw, 10rem)",
-                  letterSpacing: "-0.05em",
+                  height: "clamp(3rem, 15vw, 10rem)",
+                  width: "auto",
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                  display: "inline-block",
                 }}
-              >
-                NIHACS
-              </h2>
-              <p className="text-gray-400 text-sm sm:text-base md:text-lg mt-2 sm:mt-4">
-                National Institute of Hacking And Cyber Security
-              </p>
+              />
             </div>
 
             {/* Map */}

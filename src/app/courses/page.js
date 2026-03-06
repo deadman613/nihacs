@@ -5,9 +5,10 @@ import Carousel from '../../Homesections/carouselsection';
 export default function Page() {
   return (
     <main>
-        <HeroCourses />
-            <Carousel />
+        
       <Courses />
+            <Carousel />
+        <HeroCourses />
     </main>
   );
 }

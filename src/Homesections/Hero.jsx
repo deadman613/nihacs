@@ -10,7 +10,7 @@ const STAGGER_MS  = 60;   // delay between each letter starting its flip
 const FLIP_MS     = 120;  // duration of each half of the flip (squish / unsquish)
 const PAUSE_MS    = 2800;
 
-/* ─── Single letter flip ───────────────────────────────────────────────────
+/* ─── Single letter flip ────────────────────────────────────────────────
    Uses scaleY (top-to-bottom fold) so the character never appears upside-down.
    Phase: idle → squish (scaleY 1→0) → swap char → unsquish (scaleY 0→1) → idle
 */
