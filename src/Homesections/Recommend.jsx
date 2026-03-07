@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 
-// Sample courses data
 const sampleCourses = [
   {
     id: 1,
@@ -10,14 +9,15 @@ const sampleCourses = [
     description: "Hands-on labs covering pen-testing, recon, and exploitation.",
     duration: "6 Months",
     image: "/Courses/6.png",
+    href: "/courses/web-penetration-testing-bug-bounty-hunting", // ✅ matches slug page
   },
   {
     id: 2,
     title: "Basic Ethical Hacking",
-    description:
-      "Core security concepts, network defense, and incident response.",
+    description: "Core security concepts, network defense, and incident response.",
     duration: "3 Months",
     image: "/Courses/03.png",
+    href: "/courses/basic-ethical-hacking", // ✅ matches slug page
   },
   {
     id: 3,
@@ -25,6 +25,7 @@ const sampleCourses = [
     description: "OWASP top 10, secure coding and real-world exploit labs.",
     duration: "3 Years",
     image: "/Courses/3.png",
+    href: "/courses/bachelor-in-cybersecurity", // ✅ matches slug page
   },
   {
     id: 4,
@@ -32,6 +33,7 @@ const sampleCourses = [
     description: "Secure architectures, IAM, and cloud incident response.",
     duration: "4 Months",
     image: "/Courses/2.png",
+    href: "/courses/master-in-cybersecurity-ethical-hacking", // ✅ matches slug page
   },
   {
     id: 5,
@@ -39,20 +41,21 @@ const sampleCourses = [
     description: "Python and tooling for automation, analysis, and tooling.",
     duration: "12 Months",
     image: "/Courses/12.png",
+    href: "/courses/diploma-in-cybersecurity", // ✅ matches slug page
   },
 ];
 
 export default function Recommend() {
-  // Show only first 3 courses
   const recommendedCourses = sampleCourses.slice(0, 3);
 
   return (
     <section className="bg-black text-white py-10 md:py-28">
       <div className="max-w-[1350px] mx-auto px-4">
+
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-       Courses Designed for the Real-World
+            Courses Designed for the Real-World
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Start your journey with our top-rated courses. Perfect for beginners
@@ -91,8 +94,8 @@ export default function Recommend() {
                     {course.duration}
                   </span>
                   <Link
-                    href="/courses"
-                    className="bg-[#ff1e00] text-white px-4 py-2 rounded-full font-semibold text-sm hover:bg-[#ff3333] transition-colors duration-200"
+                    href={course.href}  // ✅ now points to correct course slug
+                    className="bg-[#ff1e00] z-30 text-white px-4 py-2 rounded-full font-semibold text-sm hover:bg-[#ff3333] transition-colors duration-200"
                   >
                     Explore
                   </Link>
@@ -110,6 +113,7 @@ export default function Recommend() {
             </button>
           </Link>
         </div>
+
       </div>
     </section>
   );
