@@ -253,7 +253,7 @@ export default function CertCarousel() {
               Certifications
             </h2>
             <p className="fn-mono text-neutral-600 text-xs max-w-xs leading-relaxed">
-              Industry-recognized credentials trusted by security professionals worldwide.
+              Industry-recognized Credentials trusted by security professionals worldwide.
             </p>
           </div>
           <div className="gold-divider" />
